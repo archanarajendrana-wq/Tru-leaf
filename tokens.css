@@ -1,0 +1,77 @@
+/* Truleaf Design System — tokens.css (v2, logo-true indigo-primary)
+   Mirrors Figma collections: Primitives (indigo / pacific-blue / olive / neutral, 1–11) + Semantic roles. */
+:root{
+  /* ---- Primitives: indigo (PRIMARY, logo #272c7d @ step 6) ---- */
+  --indigo-1:#dcdef7; --indigo-2:#b3b6e6; --indigo-3:#8085cc; --indigo-4:#555aad;
+  --indigo-5:#343a8f; --indigo-6:#272c7d; --indigo-7:#1e2261; --indigo-8:#191c4c;
+  --indigo-9:#16183b; --indigo-10:#12142b; --indigo-11:#0a0b17;
+
+  /* ---- Primitives: pacific-blue (SECONDARY, logo #23bfe8 @ step 3) ---- */
+  --blue-1:#ddf5fb; --blue-2:#7dd9f2; --blue-3:#23bfe8; --blue-4:#23aace;
+  --blue-5:#2396b4; --blue-6:#21809a; --blue-7:#1e6b7f; --blue-8:#1a5665;
+  --blue-9:#15404b; --blue-10:#0f2a31; --blue-11:#071417;
+
+  /* ---- Primitives: olive (ACCENT) ---- */
+  --olive-1:#f2f7e2; --olive-2:#dbe6be; --olive-3:#bccc90; --olive-4:#9bad68;
+  --olive-5:#7c8f47; --olive-6:#657536; --olive-7:#53612c; --olive-8:#424c24;
+  --olive-9:#333b1d; --olive-10:#242916; --olive-11:#15170e;
+
+  /* ---- Primitives: neutral ---- */
+  --neutral-1:#f3f3f7; --neutral-2:#dedee6; --neutral-3:#c1c1cc; --neutral-4:#a1a1ad;
+  --neutral-5:#82828f; --neutral-6:#6a6a75; --neutral-7:#575761; --neutral-8:#45454c;
+  --neutral-9:#35353b; --neutral-10:#252529; --neutral-11:#151517;
+
+  --white:#ffffff; --paper:#f5f4ee; --paper-warm:#ecece2;
+
+  /* ---- Semantic: color ---- */
+  --brand-primary:var(--indigo-6);
+  --brand-primary-hover:var(--indigo-5);
+  --brand-secondary:var(--blue-4);
+  --brand-accent:var(--olive-5);
+
+  --bg-page:var(--paper);
+  --bg-warm:var(--paper-warm);
+  --bg-brand:var(--indigo-6);
+  --bg-brand-deep:var(--indigo-9);
+  --bg-subtle:var(--olive-1);
+
+  --text-primary:var(--neutral-11);
+  --text-secondary:var(--neutral-7);
+  --text-on-dark:var(--white);
+  --text-label:var(--olive-7);
+
+  --action-primary:var(--indigo-6);
+  --action-on-primary:var(--white);
+  --border-subtle:var(--neutral-3);
+
+  /* ---- Semantic: spacing ---- */
+  --space-tight:8px; --space-inline:12px; --space-stack:24px;
+  --space-card:32px; --space-section-sm:90px; --space-section:130px;
+  --page-margin:44px;
+
+  /* ---- Radius ---- */
+  --radius-12:12px; --radius-16:16px; --radius-card:20px; --radius-24:24px; --radius-control:999px;
+
+  /* ---- Type ---- */
+  --font-display:'Sora',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+
+  /* ---- Motion ---- */
+  --ease-out:cubic-bezier(.2,.7,.2,1);
+  --dur-fast:.25s; --dur-med:.45s; --dur-slow:.9s;
+}
+
+/* type ramp utilities (match Figma semantic type roles) */
+.t-display{ font-family:var(--font-display); font-weight:600; font-size:clamp(40px,6vw,74px); line-height:1.03; letter-spacing:-.03em; }
+.t-h1{ font-family:var(--font-display); font-weight:600; font-size:clamp(32px,4.6vw,46px); line-height:1.12; letter-spacing:-.02em; }
+.t-h2{ font-family:var(--font-display); font-weight:600; font-size:clamp(28px,3.8vw,38px); line-height:1.12; letter-spacing:-.015em; }
+.t-h3{ font-family:var(--font-display); font-weight:600; font-size:22px; line-height:1.2; letter-spacing:-.01em; }
+.t-body-lg{ font-family:var(--font-body); font-weight:400; font-size:17px; line-height:1.6; }
+.t-body{ font-family:var(--font-body); font-weight:400; font-size:16px; line-height:1.65; }
+.t-small{ font-family:var(--font-body); font-weight:500; font-size:14px; line-height:1.55; }
+.t-label{ font-family:var(--font-mono); font-weight:500; font-size:12px; line-height:1.2; letter-spacing:.14em; text-transform:uppercase; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+}
