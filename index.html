@@ -848,6 +848,25 @@ gsap.to('#productsRow .product-card',{
   autoAlpha:1, y:0, duration:.8, ease:'power3.out', stagger:.08,
   scrollTrigger:{ trigger:'#productsRow', start:'top 82%' }
 });
+
+/* subtle hover parallax: image drifts toward the cursor and eases back on exit */
+function initHoverParallax(figures, range, scaleAmt){
+  range = range || 16; scaleAmt = scaleAmt || 1.12;
+  figures.forEach(fig=>{
+    const img = fig.querySelector('img');
+    if(!img) return;
+    const xTo = gsap.quickTo(img, 'x', { duration:.6, ease:'power3.out' });
+    const yTo = gsap.quickTo(img, 'y', { duration:.6, ease:'power3.out' });
+    fig.addEventListener('mouseenter', ()=> gsap.to(img, { scale:scaleAmt, duration:.5, ease:'power3.out' }));
+    fig.addEventListener('mousemove', e=>{
+      const r = fig.getBoundingClientRect();
+      xTo(((e.clientX - r.left) / r.width - .5) * range);
+      yTo(((e.clientY - r.top) / r.height - .5) * range);
+    });
+    fig.addEventListener('mouseleave', ()=> gsap.to(img, { scale:1, x:0, y:0, duration:.6, ease:'power3.out' }));
+  });
+}
+initHoverParallax(gsap.utils.toArray('#productsRow .product-figure'));
 </script>
 
 </body>
