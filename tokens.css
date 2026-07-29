@@ -34,6 +34,7 @@
   --bg-brand:var(--indigo-6);
   --bg-brand-deep:var(--indigo-9);
   --bg-subtle:var(--olive-1);
+  --bg-olive-deep:var(--olive-7);
 
   --text-primary:var(--neutral-11);
   --text-secondary:var(--neutral-7);
@@ -48,6 +49,13 @@
   --space-tight:8px; --space-inline:12px; --space-stack:24px;
   --space-card:32px; --space-section-sm:90px; --space-section:130px;
   --page-margin:44px;
+  --space-head:40px; --space-head-sm:28px;
+
+  /* ---- Semantic: layout ---- */
+  --container-max:1240px; --container-narrow:1040px;
+
+  /* ---- Semantic: color (accent) ---- */
+  --text-accent-warm:#e9dcc4;
 
   /* ---- Radius ---- */
   --radius-12:12px; --radius-16:16px; --radius-card:20px; --radius-24:24px; --radius-control:999px;
