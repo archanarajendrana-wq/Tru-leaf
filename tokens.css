@@ -35,6 +35,8 @@
   --bg-brand-deep:var(--indigo-9);
   --bg-subtle:var(--olive-1);
   --bg-olive-deep:var(--olive-7);
+  --bg-teal-deep:var(--blue-5);
+  --bg-neutral:var(--neutral-1);
 
   --text-primary:var(--neutral-11);
   --text-secondary:var(--neutral-7);
@@ -48,6 +50,7 @@
   /* ---- Semantic: spacing ---- */
   --space-tight:8px; --space-inline:12px; --space-stack:24px;
   --space-card:32px; --space-section-sm:90px; --space-section:130px;
+  --space-section-tight:56px; --space-section-tight-sm:32px;
   --page-margin:44px;
   --space-head:40px; --space-head-sm:28px;
 
@@ -58,10 +61,11 @@
   --text-accent-warm:#e9dcc4;
 
   /* ---- Radius ---- */
-  --radius-12:12px; --radius-16:16px; --radius-card:20px; --radius-24:24px; --radius-control:999px;
+  --radius-sm:8px; --radius-md:10px; --radius-card:20px; --radius-lg:14px; --radius-control:999px;
 
   /* ---- Type ---- */
   --font-display:'Sora',sans-serif;
+  --font-header:'Lora',serif;
   --font-body:'Inter',sans-serif;
   --font-mono:'IBM Plex Mono',monospace;
 
@@ -82,4 +86,8 @@
 
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+}
+
+@media(max-width:520px){
+  :root{ --page-margin:24px; }
 }
