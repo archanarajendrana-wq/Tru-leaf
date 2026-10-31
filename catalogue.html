@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Product Catalogue | Truleaf</title>
+<meta name="description" content="Browse Truleaf's range of organic fresh and processed produce, ingredients and value-added products for global buyers.">
+<link rel="canonical" href="https://truleaf.in/catalogue">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Truleaf">
+<meta property="og:title" content="Product Catalogue | Truleaf">
+<meta property="og:description" content="Browse Truleaf's range of organic fresh and processed produce, ingredients and value-added products for global buyers.">
+<meta property="og:url" content="https://truleaf.in/catalogue">
+<meta property="og:image" content="https://truleaf.in/webimg/figma-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#272c7d">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Lora:wght@400;500&family=Sora:wght@300;400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=80" />
+<link rel="stylesheet" href="assets/footer.css" />
+<link rel="stylesheet" href="assets/motion.css" />
+</head>
+<body>
+
+<header class="catalogue-hero">
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__logo" aria-label="Trueleaf home">
+      <img src="assets/icons/logo-mark.svg" alt="" class="nav__logo-mark" />
+      <img src="assets/icons/logo-text.svg" alt="Trueleaf" class="nav__logo-text" />
+    </a>
+
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="nav__links" id="navLinks">
+      <a href="catalogue.html">Products</a>
+      <a href="supply-chain.html">Retail to Business</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About Us</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html" class="nav__cta nav__cta--mobile">Get in touch</a>
+    </div>
+
+    <a href="contact.html" class="nav__cta">Get in touch</a>
+  </nav>
+
+  <div class="catalogue-hero__content reveal">
+    <h1 class="catalogue-hero__title">Product Catalogue</h1>
+
+    <form class="catalogue-search" role="search" action="search.html" method="get">
+      <div class="catalogue-search__field">
+        <svg class="catalogue-search__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="9" cy="9" r="6.5" stroke="#45454c" stroke-width="1.6" />
+          <line x1="13.6" y1="13.6" x2="18" y2="18" stroke="#45454c" stroke-width="1.6" stroke-linecap="round" />
+        </svg>
+        <input type="search" name="q" class="catalogue-search__input" placeholder="Search for premium spices, nuts, or seeds..." aria-label="Search products" />
+      </div>
+      <button type="submit" class="catalogue-search__submit" aria-label="Search">
+        <img src="assets/icons/arrow-right.svg" alt="" />
+      </button>
+    </form>
+  </div>
+</header>
+
+<section class="catalogue-section" id="organic">
+ <div class="content-wrap catalogue-section__grid">
+  <div class="catalogue-section__intro">
+    <p class="catalogue-eyebrow">Our capabilities</p>
+    <h2 class="catalogue-section__heading">Organic Ingredients</h2>
+    <p class="catalogue-section__body">Certified organic ingredients, sourced from farms with full traceability back to origin, tested and graded before every shipment.</p>
+  </div>
+
+  <div class="catalogue-section__list reveal-stagger" id="organicProductList"></div>
+ </div>
+</section>
+
+<section class="catalogue-section catalogue-section--alt" id="conventional">
+ <div class="content-wrap catalogue-section__grid">
+  <div class="catalogue-section__intro">
+    <p class="catalogue-eyebrow">Our capabilities</p>
+    <h2 class="catalogue-section__heading">Conventional Ingredients</h2>
+    <p class="catalogue-section__body">The same ingredient range at conventional grade, with flexible volumes and bulk or private-label packaging, for buyers who don't require organic certification.</p>
+  </div>
+
+  <div class="catalogue-section__list reveal-stagger" id="conventionalProductList"></div>
+ </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo" aria-label="Truleaf home">
+          <img class="footer-logo__mark" src="assets/icons/footer-logo-mark.svg" alt="" />
+          <img class="footer-logo__text" src="assets/icons/footer-logo-text.svg" alt="Truleaf" />
+          <img class="footer-logo__line" src="assets/icons/footer-logo-underline.svg" alt="" />
+        </a>
+        <p>Reliable organic sourcing for global markets. Traceable, certified agricultural exports from origin to international buyers.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="Twitter">TW</a>
+          <a href="#" aria-label="LinkedIn">LI</a>
+          <a href="#" aria-label="Instagram">IG</a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="supply-chain.html">Ready to Retail</a></li>
+            <li><a href="catalogue.html">Product Catalogue</a></li>
+            <li><a href="blog.html">Our Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-col--offices">
+          <div class="footer-office">
+            <h4>Registered office</h4>
+            <address>1A-1B Neem Square, KRG Nagar Main street, Ganapathy,<br>Coimbatore, Tamil Nadu, India 641006</address>
+          </div>
+          <div class="footer-office">
+            <h4>Corporate office</h4>
+            <address>Innov8 SKCL Tech Square Guindy, 2nd Floor, No 14 SP, SIDCO, T.V.K industrial Estate, Guindy,<br>Chennai, Tamil Nadu, India 600032</address>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Truleaf Exports</span>
+      <span>All Rights Reserved</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/sanity.js"></script>
+<script src="assets/search.js"></script>
+<script src="assets/product-overlay.js"></script>
+<script>
+  // Grade (Organic / Conventional Ingredients) -> subcategories, all from Sanity: Category documents with
+  // "Show on Product Catalogue" ticked, ordered by their Organic / Conventional display order.
+  // Each card opens that subcategory's products page for the grade.
+  const listQuery = (flag, order) =>
+    `*[_type=="category" && ${flag}==true] | order(${order} asc){name, shortDescription, "slug": slug.current, "imageRef": image.asset._ref}`;
+
+  // Shown only until the catalogue categories exist in Sanity (see studio/seed-catalogue.mjs).
+  const IMG = 'assets/images/category-normalized/';
+  const FALLBACK = {
+    coconut: { name: 'Coconut Products', slug: 'coconut-products', shortDescription: 'Milk, cream, oils, desiccated and more, sourced from trusted processors.', image: 'assets/images/category-normalized/category-coconut-products.png' },
+    fruitsVeg: { name: 'Fruits & Vegetables', slug: 'fruits-vegetables', shortDescription: 'Fresh produce graded and packed for export.', image: IMG + 'category-fruits-vegetables.png' },
+    oils: { name: 'Edible Oils', slug: 'edible-oils', shortDescription: 'Cold-pressed and refined oils in bulk and retail packs.', image: IMG + 'category-edible-oils.png' },
+    juices: { name: 'Juices & Purees', slug: 'juices-purees', shortDescription: 'Fruit juices and purees for beverage and food makers.', image: IMG + 'category-juices-purees.png' },
+    pickled: { name: 'Pickled & Preserved Vegetables', slug: 'pickled-preserved-vegetables', shortDescription: 'Pickled and preserved vegetables, ready for retail and food service.', image: IMG + 'category-pickled-vegetables.png' },
+    frozen: { name: 'Frozen Fruits & Vegetables', slug: 'frozen-fruits-vegetables', shortDescription: 'Frozen fruits and vegetables with the cold chain intact.', image: IMG + 'category-frozen-produce.png' },
+  };
+  const FALLBACK_ORGANIC = ['coconut', 'fruitsVeg', 'oils', 'juices'].map((k) => FALLBACK[k]);
+  const FALLBACK_CONVENTIONAL = ['coconut', 'pickled', 'juices', 'fruitsVeg', 'oils', 'frozen'].map((k) => FALLBACK[k]);
+
+  const renderList = (items, grade) =>
+    items.map((c) => renderCategoryCard({
+      name: c.name,
+      description: c.shortDescription || '',
+      imageUrl: c.image || urlForImageRef(c.imageRef),
+      href: `${PRODUCT_LISTING_URL}?category=${encodeURIComponent(c.slug)}&grade=${grade}`,
+    })).join('');
+
+  const load = async (query, fallback, targetId, grade) => {
+    let items = [];
+    try {
+      items = await sanityFetch(query);
+    } catch (err) {
+      console.error('Could not load catalogue categories from Sanity', err);
+    }
+    document.getElementById(targetId).innerHTML = renderList(items && items.length ? items : fallback, grade);
+  };
+
+  Promise.all([
+    load(listQuery('showOrganic', 'organicOrder'), FALLBACK_ORGANIC, 'organicProductList', 'organic'),
+    load(listQuery('showConventional', 'conventionalOrder'), FALLBACK_CONVENTIONAL, 'conventionalProductList', 'conventional'),
+  ]).then(() => {
+    document.querySelectorAll('.reveal-stagger').forEach((el) => el.classList.add('is-visible'));
+  });
+</script>
+<script src="script.js?v=2"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/motion.js?v=3"></script>
+</body>
+</html>

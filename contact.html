@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact Us | Request a Quote | Truleaf</title>
+<meta name="description" content="Talk to the Truleaf sourcing team. Request a quote or sample for organic produce and ingredients.">
+<link rel="canonical" href="https://truleaf.in/contact">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Truleaf">
+<meta property="og:title" content="Contact Us | Request a Quote | Truleaf">
+<meta property="og:description" content="Talk to the Truleaf sourcing team. Request a quote or sample for organic produce and ingredients.">
+<meta property="og:url" content="https://truleaf.in/contact">
+<meta property="og:image" content="https://truleaf.in/webimg/figma-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#272c7d">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Lora:wght@400;500&family=Sora:wght@300&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=80" />
+<link rel="stylesheet" href="assets/footer.css" />
+<link rel="stylesheet" href="assets/motion.css" />
+</head>
+<body>
+
+<section class="contact" id="contact">
+  <div class="contact__hero">
+    <div class="contact__hero-inner content-wrap">
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav__logo" aria-label="Trueleaf home">
+          <img src="assets/icons/logo-mark.svg" alt="" class="nav__logo-mark" />
+          <img src="assets/icons/logo-text.svg" alt="Trueleaf" class="nav__logo-text" />
+        </a>
+
+        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="nav__links" id="navLinks">
+          <a href="catalogue.html">Products</a>
+          <a href="supply-chain.html">Retail to Business</a>
+          <a href="blog.html">Blog</a>
+          <a href="about.html">About Us</a>
+          <a href="careers.html">Careers</a>
+          <a href="contact.html" class="nav__cta nav__cta--mobile">Get in touch</a>
+        </div>
+
+        <a href="contact.html" class="nav__cta">Get in touch</a>
+      </nav>
+
+      <div class="contact__grid">
+        <div class="contact-copy reveal">
+          <p class="contact-copy__eyebrow">Get in touch</p>
+          <h1 class="contact-copy__title">Let's talk sourcing.</h1>
+          <p class="contact-copy__body">Whether you need a quote, a sample, or want to discuss a bulk program, our sourcing team responds within one business day.</p>
+
+          <div class="contact-copy__list">
+            <div class="contact-copy__item">
+              <span class="contact-copy__label">Email</span>
+              <a href="mailto:info@truleaf.in" class="contact-copy__value contact-copy__link">info@truleaf.in</a>
+            </div>
+            <div class="contact-copy__item">
+              <span class="contact-copy__label">Registered office</span>
+              <span class="contact-copy__value">1A-1B Neem Square, KRG Nagar Main street, Ganapathy, Coimbatore, Tamil Nadu, India 641006</span>
+            </div>
+            <div class="contact-copy__item">
+              <span class="contact-copy__label">Corporate office</span>
+              <span class="contact-copy__value">Innov8 SKCL Tech Square Guindy, 2nd Floor, No 14 SP, SIDCO, T.V.K industrial Estate, Guindy, Chennai, Tamil Nadu, India 600032</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-card reveal" id="contactCard">
+          <form class="contact-card__panel" id="contactForm" novalidate>
+            <p class="contact-card__title">Send us a message</p>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" />
+
+            <div class="contact-field">
+              <label for="contactName">Full name</label>
+              <input type="text" id="contactName" name="name" placeholder="Jane Doe" required />
+            </div>
+
+            <div class="contact-field" id="contactEmailField">
+              <label for="contactEmail">Work email</label>
+              <input type="email" id="contactEmail" name="email" placeholder="jane@company.com" required />
+              <p class="contact-field__error" id="contactEmailError" hidden>Please enter a valid work email address.</p>
+            </div>
+
+            <div class="contact-field">
+              <label for="contactPhone">Contact number</label>
+              <div class="contact-field__phone">
+                <select id="contactPhoneCode" name="phoneCode" aria-label="Country code" class="contact-field__code"></select>
+                <input type="tel" id="contactPhone" name="phone" placeholder="555 123 4567" autocomplete="tel-national" />
+              </div>
+            </div>
+
+            <div class="contact-field">
+              <label for="contactCountry">Country</label>
+              <select id="contactCountry" name="country" required></select>
+            </div>
+
+            <div class="contact-field">
+              <label for="contactProduct">Product of interest</label>
+              <select id="contactProduct" name="product" required>
+                <option value="" selected>Select a product</option>
+                <option value="Coconut Milk">Coconut Milk</option>
+                <option value="Coconut Cream">Coconut Cream</option>
+                <option value="Desiccated Coconut">Desiccated Coconut</option>
+                <option value="Extra Virgin Coconut Oil">Extra Virgin Coconut Oil</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="contact-field contact-field--grow">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" name="message" placeholder="Tell us what you're sourcing..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary contact-card__submit">Send Message</button>
+          </form>
+
+          <div class="contact-card__panel contact-card__panel--state" id="contactSuccess" hidden>
+            <div class="contact-card__icon contact-card__icon--success">
+              <img src="assets/icons/state-success.svg" alt="" />
+            </div>
+            <p class="contact-card__state-title">Message sent!</p>
+            <p class="contact-card__state-desc">Thanks for reaching out. Our sourcing team will get back to you within one business day.</p>
+            <button type="button" class="btn btn--outline" id="sendAnotherBtn">Send Another Message</button>
+          </div>
+
+          <div class="contact-card__panel contact-card__panel--state" id="contactError" hidden>
+            <div class="contact-card__icon contact-card__icon--error">
+              <img src="assets/icons/state-error.svg" alt="" />
+            </div>
+            <p class="contact-card__state-title">Message failed to send</p>
+            <p class="contact-card__state-desc">Something went wrong on our end and your message didn't go through. Please try again, or email us directly at info@truleaf.in.</p>
+            <div class="contact-card__actions">
+              <button type="button" class="btn btn--primary contact-card__action" id="tryAgainBtn">Try Again</button>
+              <a href="mailto:info@truleaf.in" class="btn btn--outline contact-card__action">Email Us Instead</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- stacked layouts only: contact details follow the form (the copy above is hidden there) -->
+        <div class="contact-copy contact-copy--details">
+          <div class="contact-copy__list">
+            <div class="contact-copy__item">
+              <span class="contact-copy__label">Email</span>
+              <a href="mailto:info@truleaf.in" class="contact-copy__value contact-copy__link">info@truleaf.in</a>
+            </div>
+            <div class="contact-copy__item">
+              <span class="contact-copy__label">Registered office</span>
+              <span class="contact-copy__value">1A-1B Neem Square, KRG Nagar Main street, Ganapathy, Coimbatore, Tamil Nadu, India 641006</span>
+            </div>
+            <div class="contact-copy__item">
+              <span class="contact-copy__label">Corporate office</span>
+              <span class="contact-copy__value">Innov8 SKCL Tech Square Guindy, 2nd Floor, No 14 SP, SIDCO, T.V.K industrial Estate, Guindy, Chennai, Tamil Nadu, India 600032</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo" aria-label="Truleaf home">
+          <img class="footer-logo__mark" src="assets/icons/footer-logo-mark.svg" alt="" />
+          <img class="footer-logo__text" src="assets/icons/footer-logo-text.svg" alt="Truleaf" />
+          <img class="footer-logo__line" src="assets/icons/footer-logo-underline.svg" alt="" />
+        </a>
+        <p>Reliable organic sourcing for global markets. Traceable, certified agricultural exports from origin to international buyers.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="Twitter">TW</a>
+          <a href="#" aria-label="LinkedIn">LI</a>
+          <a href="#" aria-label="Instagram">IG</a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="supply-chain.html">Ready to Retail</a></li>
+            <li><a href="catalogue.html">Product Catalogue</a></li>
+            <li><a href="blog.html">Our Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-col--offices">
+          <div class="footer-office">
+            <h4>Registered office</h4>
+            <address>1A-1B Neem Square, KRG Nagar Main street, Ganapathy,<br>Coimbatore, Tamil Nadu, India 641006</address>
+          </div>
+          <div class="footer-office">
+            <h4>Corporate office</h4>
+            <address>Innov8 SKCL Tech Square Guindy, 2nd Floor, No 14 SP, SIDCO, T.V.K industrial Estate, Guindy,<br>Chennai, Tamil Nadu, India 600032</address>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Truleaf Exports</span>
+      <span>All Rights Reserved</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/countries.js"></script>
+<script>
+  (() => {
+    const country = document.getElementById('contactCountry');
+    const code = document.getElementById('contactPhoneCode');
+    const phone = document.getElementById('contactPhone');
+
+    country.innerHTML =
+      '<option value="" selected>Select your country</option>' +
+      COUNTRIES.map(([name]) => `<option value="${name}">${name}</option>`).join('');
+    code.innerHTML =
+      '<option value="" selected>Code</option>' +
+      COUNTRIES.map(([name, iso, dial]) => `<option value="+${dial}" data-country="${name}">${iso} +${dial}</option>`).join('');
+
+    // Picking a country pre-selects its dial code; the code can still be changed afterwards.
+    country.addEventListener('change', () => {
+      const match = COUNTRIES.find(([name]) => name === country.value);
+      if (match) code.value = `+${match[2]}`;
+      // +1 / +7 are shared, so land on the chosen country's own entry
+      const own = [...code.options].find((o) => o.dataset.country === country.value);
+      if (own) own.selected = true;
+    });
+
+    phone.addEventListener('input', () => { code.required = phone.value.trim() !== ''; });
+  })();
+</script>
+<script src="assets/forms.js"></script>
+<script src="script.js?v=3"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/motion.js?v=3"></script>
+</body>
+</html>

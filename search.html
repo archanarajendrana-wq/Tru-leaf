@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Search | Truleaf</title>
+<meta name="description" content="Search Truleaf products and articles.">
+<link rel="canonical" href="https://truleaf.in/search">
+<meta name="robots" content="noindex, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Truleaf">
+<meta property="og:title" content="Search | Truleaf">
+<meta property="og:description" content="Search Truleaf products and articles.">
+<meta property="og:url" content="https://truleaf.in/search">
+<meta property="og:image" content="https://truleaf.in/webimg/figma-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#272c7d">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Lora:wght@400;500&family=Sora:wght@300;400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=80" />
+<link rel="stylesheet" href="assets/footer.css" />
+<link rel="stylesheet" href="assets/motion.css" />
+</head>
+<body>
+
+<header class="catalogue-hero catalogue-hero--search">
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__logo" aria-label="Trueleaf home">
+      <img src="assets/icons/logo-mark.svg" alt="" class="nav__logo-mark" />
+      <img src="assets/icons/logo-text.svg" alt="Trueleaf" class="nav__logo-text" />
+    </a>
+
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="nav__links" id="navLinks">
+      <a href="catalogue.html">Products</a>
+      <a href="supply-chain.html">Retail to Business</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About Us</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html" class="nav__cta nav__cta--mobile">Get in touch</a>
+    </div>
+
+    <a href="contact.html" class="nav__cta">Get in touch</a>
+  </nav>
+
+  <div class="catalogue-hero__content reveal">
+    <h1 class="catalogue-hero__title">Search results</h1>
+
+    <form class="catalogue-search" role="search" action="search.html" method="get">
+      <div class="catalogue-search__field">
+        <svg class="catalogue-search__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="9" cy="9" r="6.5" stroke="#45454c" stroke-width="1.6" />
+          <line x1="13.6" y1="13.6" x2="18" y2="18" stroke="#45454c" stroke-width="1.6" stroke-linecap="round" />
+        </svg>
+        <input type="search" name="q" id="searchInput" class="catalogue-search__input" placeholder="Search for premium spices, nuts, or seeds..." aria-label="Search products" autocomplete="off" />
+      </div>
+      <button type="submit" class="catalogue-search__submit" aria-label="Search">
+        <img src="assets/icons/arrow-right.svg" alt="" />
+      </button>
+    </form>
+
+    <p class="search-summary" id="searchSummary" aria-live="polite">Searching…</p>
+  </div>
+</header>
+
+<div class="search-tabs-bar" id="searchTabsBar" hidden>
+  <div class="content-wrap search-tabs" id="searchTabs" role="group" aria-label="Filter results"></div>
+</div>
+
+<section class="catalogue-section search-results" id="categoryResults" hidden>
+ <div class="content-wrap catalogue-section__grid">
+  <div class="catalogue-section__intro">
+    <p class="catalogue-eyebrow">Browse</p>
+    <h2 class="catalogue-section__heading">Categories</h2>
+    <p class="catalogue-section__body" id="categoryResultsBody"></p>
+  </div>
+  <div class="catalogue-section__list reveal-stagger" id="categoryResultsList"></div>
+ </div>
+</section>
+
+<section class="catalogue-section catalogue-section--alt search-results" id="productResults" hidden>
+ <div class="content-wrap catalogue-section__grid">
+  <div class="catalogue-section__intro">
+    <p class="catalogue-eyebrow">Our capabilities</p>
+    <h2 class="catalogue-section__heading">Products</h2>
+    <p class="catalogue-section__body" id="productResultsBody"></p>
+  </div>
+  <div class="catalogue-section__list reveal-stagger" id="productResultsList"></div>
+ </div>
+</section>
+
+<section class="catalogue-section search-results" id="blogResults" hidden>
+ <div class="content-wrap catalogue-section__grid">
+  <div class="catalogue-section__intro">
+    <p class="catalogue-eyebrow">From the blog</p>
+    <h2 class="catalogue-section__heading">Articles</h2>
+    <p class="catalogue-section__body" id="blogResultsBody"></p>
+  </div>
+  <div class="catalogue-section__list reveal-stagger" id="blogResultsList"></div>
+ </div>
+</section>
+
+<section class="search-empty" id="searchEmpty" hidden>
+  <div class="search-empty__inner">
+    <span class="search-empty__icon" aria-hidden="true">
+      <svg width="28" height="28" viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="6.5" stroke="currentColor" stroke-width="1.6" /><line x1="13.6" y1="13.6" x2="18" y2="18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
+    </span>
+    <h2 class="search-empty__title" id="searchEmptyTitle"></h2>
+    <p class="search-empty__body" id="searchEmptyBody"></p>
+    <div class="search-chips" id="searchChips"></div>
+    <div class="search-empty__actions">
+      <a href="catalogue.html" class="btn btn--primary">Browse the full catalogue</a>
+      <a href="search.html" class="search-empty__clear" id="searchClear" hidden>Clear search</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo" aria-label="Truleaf home">
+          <img class="footer-logo__mark" src="assets/icons/footer-logo-mark.svg" alt="" />
+          <img class="footer-logo__text" src="assets/icons/footer-logo-text.svg" alt="Truleaf" />
+          <img class="footer-logo__line" src="assets/icons/footer-logo-underline.svg" alt="" />
+        </a>
+        <p>Reliable organic sourcing for global markets. Traceable, certified agricultural exports from origin to international buyers.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="Twitter">TW</a>
+          <a href="#" aria-label="LinkedIn">LI</a>
+          <a href="#" aria-label="Instagram">IG</a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="supply-chain.html">Ready to Retail</a></li>
+            <li><a href="catalogue.html">Product Catalogue</a></li>
+            <li><a href="blog.html">Our Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-col--offices">
+          <div class="footer-office">
+            <h4>Registered office</h4>
+            <address>1A-1B Neem Square, KRG Nagar Main street, Ganapathy,<br>Coimbatore, Tamil Nadu, India 641006</address>
+          </div>
+          <div class="footer-office">
+            <h4>Corporate office</h4>
+            <address>Innov8 SKCL Tech Square Guindy, 2nd Floor, No 14 SP, SIDCO, T.V.K industrial Estate, Guindy,<br>Chennai, Tamil Nadu, India 600032</address>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Truleaf Exports</span>
+      <span>All Rights Reserved</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/sanity.js"></script>
+<script src="assets/search.js"></script>
+<script src="assets/product-overlay.js"></script>
+<script>
+  (async () => {
+    const query = (new URLSearchParams(location.search).get('q') || '').trim();
+    const terms = SiteSearch.termsOf(query);
+
+    const $ = (id) => document.getElementById(id);
+    $('searchInput').value = query;
+    if (query) document.title = `“${query}” — Search — Trueleaf`;
+
+    const plural = (n, word) => `${n} ${word}${n === 1 ? '' : 's'}`;
+    const show = (el, on) => { el.hidden = !on; };
+
+    const renderChips = (products) => {
+      const names = products.slice(0, 5).map((p) => p.name);
+      $('searchChips').innerHTML = names
+        .map((n) => `<a class="search-chip" href="search.html?q=${encodeURIComponent(n)}">${escapeHtml(n)}</a>`)
+        .join('');
+    };
+
+    const showEmpty = (title, body, products) => {
+      $('searchEmptyTitle').textContent = title;
+      $('searchEmptyBody').textContent = body;
+      renderChips(products);
+      show($('searchEmpty'), true);
+    };
+
+    try {
+      const { categories, products, posts } = await SiteSearch.load();
+
+      if (!terms.length) {
+        $('searchSummary').textContent = 'Search our products and articles.';
+        showEmpty('What are you looking for?', 'Try one of these popular searches, or type a product, ingredient or topic above.', products);
+        return;
+      }
+
+      const { categories: categoryHits, products: productHits, posts: postHits } = SiteSearch.find({ categories, products, posts }, terms);
+      const total = categoryHits.length + productHits.length + postHits.length;
+
+      if (total === 0) {
+        $('searchSummary').innerHTML = `No results for <strong>“${escapeHtml(query)}”</strong>`;
+        show($('searchClear'), true);
+        showEmpty(
+          `Nothing found for “${query}”`,
+          'Check the spelling, try a more general word, or start from one of these.',
+          products
+        );
+        return;
+      }
+
+      $('searchSummary').innerHTML = `<strong>${plural(total, 'result')}</strong> for <strong>“${escapeHtml(query)}”</strong>`;
+
+      $('categoryResultsList').innerHTML = categoryHits
+        .map((c) =>
+          renderCategoryCard({
+            name: c.name,
+            description: c.shortDescription,
+            imageUrl: c.image,
+            href: SiteSearch.categoryHref(c),
+            terms,
+          })
+        )
+        .join('');
+      $('categoryResultsBody').textContent = `${plural(categoryHits.length, 'category')} matching “${query}”. Open one to see its products.`;
+
+      $('productResultsList').innerHTML = productHits
+        .map((p) =>
+          renderCategoryCard({
+            name: p.name,
+            description: p.shortDescription,
+            imageUrl: p.image,
+            href: SiteSearch.productHref(p),
+            attrs: SiteSearch.productAttrs(p),
+            terms,
+          })
+        )
+        .join('');
+      $('productResultsBody').textContent = `${plural(productHits.length, 'product')} matching “${query}” by name, category or description. Select one for details.`;
+
+      $('blogResultsList').innerHTML = postHits
+        .map((p) =>
+          renderCategoryCard({
+            name: p.title,
+            description: p.excerpt,
+            imageUrl: p.image,
+            href: SiteSearch.postHref(p),
+            terms,
+          })
+        )
+        .join('');
+      $('blogResultsBody').textContent = `${plural(postHits.length, 'article')} matching “${query}”.`;
+
+      // filter pills: All / Products / Articles (only groups that have hits)
+      const groups = [
+        { key: 'all', label: 'All', count: total },
+        ...(categoryHits.length ? [{ key: 'categories', label: 'Categories', count: categoryHits.length }] : []),
+        ...(productHits.length ? [{ key: 'products', label: 'Products', count: productHits.length }] : []),
+        ...(postHits.length ? [{ key: 'blog', label: 'Articles', count: postHits.length }] : []),
+      ];
+      const apply = (key) => {
+        show($('categoryResults'), categoryHits.length > 0 && (key === 'all' || key === 'categories'));
+        show($('productResults'), productHits.length > 0 && (key === 'all' || key === 'products'));
+        show($('blogResults'), postHits.length > 0 && (key === 'all' || key === 'blog'));
+        $('searchTabs').querySelectorAll('.search-tab').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.key === key)));
+        document.querySelectorAll('.reveal-stagger').forEach((el) => el.classList.add('is-visible'));
+      };
+      if (groups.length > 2) {
+        $('searchTabs').innerHTML = groups
+          .map((g) => `<button type="button" class="search-tab" data-key="${g.key}" aria-pressed="false">${g.label}<span class="search-tab__count">${g.count}</span></button>`)
+          .join('');
+        $('searchTabs').addEventListener('click', (e) => {
+          const btn = e.target.closest('.search-tab');
+          if (btn) apply(btn.dataset.key);
+        });
+        show($('searchTabsBar'), true);
+      }
+      apply('all');
+    } catch (err) {
+      console.error('Could not load search results from Sanity', err);
+      $('searchSummary').textContent = 'Sorry, search is unavailable right now. Please try again shortly.';
+    }
+  })();
+</script>
+<script src="script.js?v=2"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/motion.js?v=3"></script>
+</body>
+</html>

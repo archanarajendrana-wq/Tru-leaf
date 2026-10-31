@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Requirements Template</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root { --ink:#1b2430; --muted:#5f6b7a; --line:#d9dee5; --head:#eef2f7; --accent:#2e5c8a; --bg:#fff; --bar:#2e5c8a; --ms:#d9822b; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#e6eaf0; --muted:#9aa6b5; --line:#2f3946; --head:#1e2733; --accent:#7fb0e0; --bg:#121820; --bar:#4f86bd; --ms:#e8a65c; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif; }
+  main { max-width: 940px; margin: 0 auto; padding: 32px 16px 80px; }
+  h1 { font-size: 2rem; margin: 0 0 4px; }
+  h2 { font-size: 1.3rem; margin: 40px 0 6px; padding-bottom: 6px; border-bottom: 2px solid var(--accent); color: var(--accent); }
+  h3 { font-size: 1.05rem; margin: 22px 0 8px; }
+  .purpose { color: var(--muted); margin: 0 0 12px; font-size: .95rem; }
+  .purpose b { color: var(--ink); }
+  .hint { color: var(--muted); font-style: italic; margin: 6px 0 10px; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+  th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; min-width: 80px; }
+  th { background: var(--head); font-weight: 600; }
+  [contenteditable] { outline: none; }
+  [contenteditable]:focus { background: var(--head); }
+  .ex { color: var(--muted); font-style: italic; }
+  ul, ol { padding-left: 1.4rem; }
+  li { margin: 4px 0; }
+  .flow { border: 1px dashed var(--line); border-radius: 8px; padding: 24px; text-align: center; color: var(--muted); margin: 10px 0; }
+  .bar { display:flex; gap:8px; justify-content:flex-end; flex-wrap: wrap; margin-bottom: 12px; }
+  button { font: inherit; padding: 6px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--head); color: var(--ink); cursor: pointer; }
+  .small { padding: 4px 10px; font-size: .9rem; margin-top: 4px; }
+  nav.toc { background: var(--head); border-radius: 8px; padding: 12px 18px; margin: 16px 0; }
+  nav.toc ol { columns: 2; margin: 0; }
+  nav.toc a { color: var(--accent); text-decoration: none; }
+  /* roadmap */
+  .nnl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 10px 0; }
+  .nnl > div { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
+  .nnl h4 { margin: 0 0 6px; font-size: .95rem; color: var(--accent); }
+  .nnl ul { margin: 0; }
+  /* timeline */
+  table.gantt td.gt { cursor: pointer; padding: 0; height: 30px; min-width: 56px; text-align: center; }
+  table.gantt td.gt.on { background: var(--bar); }
+  table.gantt td.gt.ms { color: var(--ms); font-weight: 700; }
+  table.gantt td.lbl { min-width: 170px; }
+  @media (max-width: 640px) { nav.toc ol { columns: 1; } .nnl { grid-template-columns: 1fr; } }
+  @media print { .bar, .small { display:none; } main { padding: 0; } h2 { break-after: avoid; } table { break-inside: avoid; }
+    table.gantt td.gt.on { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+</style>
+</head>
+<body>
+<main>
+  <div class="bar">
+    <button onclick="clearExamples()">Clear placeholder text</button>
+    <button onclick="window.print()">Print / Save as PDF</button>
+  </div>
+  <h1 contenteditable>Project Requirements: <span class="ex">[Project name]</span></h1>
+  <p class="hint">Master document for the whole project. Shared decisions live here; feature detail lives in each feature PRD, linked from section 6. Each section starts with a short note on what it covers. Grey text is placeholder guidance: overwrite it, or use "Clear placeholder text". Click any cell or line to edit.</p>
+
+  <nav class="toc"><strong>Contents</strong>
+    <ol>
+      <li><a href="#s1">Document control</a></li>
+      <li><a href="#s2">Vision &amp; background</a></li>
+      <li><a href="#s3">Goals, non-goals &amp; success metrics</a></li>
+      <li><a href="#s4">Users &amp; personas</a></li>
+      <li><a href="#s5">Scope</a></li>
+      <li><a href="#s6">Feature index</a></li>
+      <li><a href="#s7">End-to-end user journeys</a></li>
+      <li><a href="#s8">Project-wide requirements</a></li>
+      <li><a href="#s9">Release plan &amp; milestones</a></li>
+      <li><a href="#s10">Roadmap &amp; timeline</a></li>
+      <li><a href="#s11">Dependencies &amp; risks</a></li>
+      <li><a href="#s12">Open questions &amp; decisions log</a></li>
+      <li><a href="#s13">Glossary</a></li>
+      <li><a href="#s14">Revision history</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="s1">1. Document Control</h2>
+  <p class="purpose"><b>What this is:</b> who owns the document, what state it is in, and where related material lives. Anyone landing here should know in 10 seconds if it is current and who to ask.</p>
+  <div class="table-wrap"><table>
+    <tr><th style="width:30%">Field</th><th>Details</th></tr>
+    <tr><td>Project name</td><td contenteditable class="ex"></td></tr>
+    <tr><td>Owner (PM / Product lead)</td><td contenteditable class="ex"></td></tr>
+    <tr><td>Status</td><td contenteditable class="ex">Draft / In review / Approved / In delivery / Launched</td></tr>
+    <tr><td>Version</td><td contenteditable class="ex">v0.1</td></tr>
+    <tr><td>Approvers</td><td contenteditable class="ex"></td></tr>
+    <tr><td>Target launch</td><td contenteditable class="ex"></td></tr>
+    <tr><td>Links</td><td contenteditable class="ex">Figma, repo, roadmap, analytics dashboard, research</td></tr>
+    <tr><td>Last updated</td><td contenteditable class="ex"></td></tr>
+  </table></div>
+
+  <h2 id="s2">2. Vision &amp; Background</h2>
+  <p class="purpose"><b>What this is:</b> the "why". The product-level problem and the future you are building toward, so every feature can be judged against it.</p>
+  <ul>
+    <li contenteditable><strong>Vision:</strong> <span class="ex">(1–2 sentences: what the product will be and for whom)</span></li>
+    <li contenteditable><strong>Problem / opportunity:</strong> <span class="ex">(the product-level problem, in users' terms)</span></li>
+    <li contenteditable><strong>Evidence:</strong> <span class="ex">(research, data, support tickets, quotes)</span></li>
+    <li contenteditable><strong>Context:</strong> <span class="ex">(market, competitors, prior work, why now)</span></li>
+  </ul>
+
+  <h2 id="s3">3. Goals, Non-goals &amp; Success Metrics</h2>
+  <p class="purpose"><b>What this is:</b> what success looks like, in numbers, and what you are choosing <i>not</i> to chase. Non-goals stop scope creep; metrics are how you will know it worked.</p>
+  <h3>Goals</h3>
+  <ul>
+    <li contenteditable><span class="ex">Business: grow repeat orders by 20% within 6 months of launch.</span></li>
+    <li contenteditable><span class="ex">User: reorder a usual basket in under 60 seconds.</span></li>
+  </ul>
+  <h3>Non-goals</h3>
+  <p class="hint">Things we are deliberately not optimizing for. Different from out of scope: non-goals are priorities, out of scope is excluded work.</p>
+  <ul>
+    <li contenteditable><span class="ex">Not optimizing for first-time discovery of new products.</span></li>
+    <li contenteditable><span class="ex">Not replacing the web store in this release.</span></li>
+  </ul>
+  <h3>Success metrics</h3>
+  <div class="table-wrap"><table>
+    <tr><th>Metric</th><th>Baseline</th><th>Target</th><th>How measured</th><th>Review date</th></tr>
+    <tr><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+    <tr><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+  </table></div>
+
+  <h2 id="s4">4. Users &amp; Personas</h2>
+  <p class="purpose"><b>What this is:</b> who the product is for, what they are trying to get done, and what gets in their way. Features should trace back to a persona.</p>
+  <div class="table-wrap"><table>
+    <tr><th>Persona</th><th>Description</th><th>Main jobs to be done</th><th>Pain points</th></tr>
+    <tr><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+    <tr><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+  </table></div>
+  <p class="hint" contenteditable>Not for: <span class="ex">(users this product is not designed for)</span></p>
+
+  <h2 id="s5">5. Scope</h2>
+  <p class="purpose"><b>What this is:</b> the boundary of the project: what is included, what is not, and what you are assuming to be true.</p>
+  <h3>In scope</h3>
+  <ul><li contenteditable class="ex">[Add item]</li><li contenteditable class="ex">[Add item]</li></ul>
+  <h3>Out of scope</h3>
+  <ul><li contenteditable class="ex">[Add item]</li><li contenteditable class="ex">[Add item]</li></ul>
+  <h3>Assumptions &amp; constraints</h3>
+  <ul><li contenteditable class="ex">[Add item]</li><li contenteditable class="ex">[Add item]</li></ul>
+
+  <h2 id="s6">6. Feature Index</h2>
+  <p class="purpose"><b>What this is:</b> the master list of features, each linking to its own PRD. This is how the project doc and feature docs stay connected. Use stable IDs (F-01…) and number requirements F-01-FR-1 so references never clash. Update status as it changes.</p>
+  <div class="table-wrap"><table id="features">
+    <tr><th>ID</th><th>Feature</th><th>Phase</th><th>Priority</th><th>Owner</th><th>Status</th><th>PRD link</th></tr>
+    <tr><td contenteditable class="ex">F-01</td><td contenteditable class="ex"></td><td contenteditable class="ex">MVP</td><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+    <tr><td contenteditable class="ex">F-02</td><td contenteditable class="ex"></td><td contenteditable class="ex">MVP</td><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+    <tr><td contenteditable class="ex">F-03</td><td contenteditable class="ex"></td><td contenteditable class="ex">v1</td><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex">Draft</td><td contenteditable class="ex"></td></tr>
+    <tr><td contenteditable class="ex">F-04</td><td contenteditable class="ex"></td><td contenteditable class="ex">v1</td><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex">Draft</td><td contenteditable class="ex"></td></tr>
+  </table></div>
+  <button class="small" onclick="addRow()">+ Add feature row</button>
+
+  <h2 id="s7">7. End-to-End User Journeys</h2>
+  <p class="purpose"><b>What this is:</b> the main paths a user takes across several features. It shows how features fit together, which individual feature PRDs cannot.</p>
+  <div class="flow" contenteditable>Paste journey diagram or link here</div>
+  <ol>
+    <li contenteditable class="ex">[Add item]</li>
+    <li contenteditable class="ex">[Add item]</li>
+  </ol>
+
+  <h2 id="s8">8. Project-wide Requirements</h2>
+  <p class="purpose"><b>What this is:</b> rules that apply to <i>every</i> feature. Write them once here; feature PRDs link back instead of repeating them. Non-functional requirements say <i>how well</i> the product must work (speed, security, accessibility), not what it does.</p>
+  <h3>Non-functional requirements</h3>
+  <div class="table-wrap"><table>
+    <tr><th>ID</th><th>Category</th><th style="width:40%">Requirement</th><th>Target</th></tr>
+    <tr><td>NFR-1</td><td contenteditable class="ex">Performance</td><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+    <tr><td>NFR-2</td><td contenteditable class="ex">Security</td><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+    <tr><td>NFR-3</td><td contenteditable class="ex">Privacy / compliance</td><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+    <tr><td>NFR-4</td><td contenteditable class="ex">Accessibility</td><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+    <tr><td>NFR-5</td><td contenteditable class="ex">Compatibility</td><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+    <tr><td>NFR-6</td><td contenteditable class="ex">Localization</td><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+    <tr><td>NFR-7</td><td contenteditable class="ex">Reliability</td><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+  </table></div>
+  <h3>Design &amp; UX principles</h3>
+  <ul><li contenteditable class="ex">[Add item]</li></ul>
+  <h3>Technical constraints &amp; architecture notes</h3>
+  <ul><li contenteditable class="ex">[Add item]</li></ul>
+  <h3>Analytics &amp; tracking standards</h3>
+  <ul><li contenteditable class="ex">[Add item]</li></ul>
+
+  <h2 id="s9">9. Release Plan &amp; Milestones</h2>
+  <p class="purpose"><b>What this is:</b> how the work is split into releases, what ships in each, and how you decide a release is "done". Use the Roadmap below for the visual timeline.</p>
+  <div class="table-wrap"><table>
+    <tr><th>Phase</th><th>Scope (feature IDs)</th><th>Target date</th><th>Exit criteria</th></tr>
+    <tr><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+    <tr><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+    <tr><td contenteditable class="ex">v2</td><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+  </table></div>
+  <p class="hint" contenteditable>Rollout &amp; rollback: <span class="ex">(feature flags, % rollout, beta group, how to roll back)</span></p>
+
+  <h2 id="s10">10. Roadmap &amp; Timeline</h2>
+  <p class="purpose"><b>What this is:</b> the high-level picture over time. The Now / Next / Later board shows priorities without hard dates; the timeline shows when work happens. Click any timeline cell to shade it, and click again to clear. Double-click a cell to mark a milestone (◆).</p>
+  <h3>Roadmap: Now / Next / Later</h3>
+  <div class="nnl">
+    <div><h4>Now (in build)</h4><ul><li contenteditable class="ex">[Add item]</li><li contenteditable class="ex">[Add item]</li></ul></div>
+    <div><h4>Next (planned, scoped)</h4><ul><li contenteditable class="ex">[Add item]</li><li contenteditable class="ex">[Add item]</li></ul></div>
+    <div><h4>Later (ideas, not committed)</h4><ul><li contenteditable class="ex">[Add item]</li><li contenteditable class="ex">[Add item]</li></ul></div>
+  </div>
+  <h3>Timeline</h3>
+  <p class="hint">Edit the headers (weeks, months or quarters) and row labels to match your plan.</p>
+  <div class="table-wrap"><table class="gantt" id="gantt">
+    <tr><th>Workstream</th><th contenteditable>Month 1</th><th contenteditable>Month 2</th><th contenteditable>Month 3</th><th contenteditable>Month 4</th><th contenteditable>Month 5</th><th contenteditable>Month 6</th></tr>
+    <tr><td class="lbl" contenteditable>Feature / workstream</td><td class="gt"></td><td class="gt"></td><td class="gt"></td><td class="gt"></td><td class="gt"></td><td class="gt"></td></tr>
+    <tr><td class="lbl" contenteditable>Feature / workstream</td><td class="gt"></td><td class="gt"></td><td class="gt"></td><td class="gt"></td><td class="gt"></td><td class="gt"></td></tr>
+    <tr><td class="lbl" contenteditable>Feature / workstream</td><td class="gt"></td><td class="gt"></td><td class="gt"></td><td class="gt"></td><td class="gt"></td><td class="gt"></td></tr>
+    <tr><td class="lbl" contenteditable>Feature / workstream</td><td class="gt"></td><td class="gt"></td><td class="gt"></td><td class="gt"></td><td class="gt"></td><td class="gt"></td></tr>
+    <tr><td class="lbl" contenteditable>Feature / workstream</td><td class="gt"></td><td class="gt"></td><td class="gt"></td><td class="gt"></td><td class="gt"></td><td class="gt"></td></tr>
+    <tr><td class="lbl" contenteditable>Milestones</td><td class="gt"></td><td class="gt"></td><td class="gt"></td><td class="gt"></td><td class="gt"></td><td class="gt"></td></tr>
+  </table></div>
+  <p class="hint" contenteditable>Milestones: <span class="ex">(key dates marked ◆ above, e.g. beta, launch)</span></p>
+  <button class="small" onclick="addGanttRow()">+ Add workstream row</button>
+
+  <h2 id="s11">11. Dependencies &amp; Risks</h2>
+  <p class="purpose"><b>What this is:</b> things outside the team's control that you rely on (dependencies), and things that could go wrong (risks), each with a plan and an owner.</p>
+  <div class="table-wrap"><table>
+    <tr><th>#</th><th>Type</th><th>Description</th><th>Impact</th><th>Likelihood</th><th>Mitigation</th><th>Owner</th></tr>
+    <tr><td>R1</td><td contenteditable class="ex">Risk / Dependency</td><td contenteditable class="ex"></td><td contenteditable class="ex">H / M / L</td><td contenteditable class="ex">H / M / L</td><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+    <tr><td>R2</td><td contenteditable class="ex">Risk / Dependency</td><td contenteditable class="ex"></td><td contenteditable class="ex">H / M / L</td><td contenteditable class="ex">H / M / L</td><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+  </table></div>
+
+  <h2 id="s12">12. Open Questions &amp; Decisions Log</h2>
+  <p class="purpose"><b>What this is:</b> a running record. Questions are things nobody has answered yet; decisions are what was settled, by whom and why, so the team does not reopen them later.</p>
+  <h3>Open questions</h3>
+  <div class="table-wrap"><table>
+    <tr><th>#</th><th>Question / blocker</th><th>Type</th><th>Owner</th><th>Status</th><th>Resolution</th></tr>
+    <tr><td>Q1</td><td contenteditable class="ex"></td><td contenteditable class="ex">Question / Blocker</td><td contenteditable class="ex"></td><td contenteditable class="ex">Open</td><td contenteditable></td></tr>
+    <tr><td>Q2</td><td contenteditable class="ex"></td><td contenteditable class="ex">Question / Blocker</td><td contenteditable class="ex"></td><td contenteditable class="ex">Open</td><td contenteditable></td></tr>
+  </table></div>
+  <h3>Decisions</h3>
+  <div class="table-wrap"><table>
+    <tr><th>#</th><th>Decision</th><th>Reasoning</th><th>Decided by</th><th>Date</th></tr>
+    <tr><td>D1</td><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+  </table></div>
+
+  <h2 id="s13">13. Glossary</h2>
+  <p class="purpose"><b>What this is:</b> short definitions of project terms and abbreviations, so everyone uses the same words for the same things.</p>
+  <div class="table-wrap"><table>
+    <tr><th style="width:30%">Term</th><th>Definition</th></tr>
+    <tr><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+    <tr><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+  </table></div>
+
+  <h2 id="s14">14. Revision History</h2>
+  <p class="purpose"><b>What this is:</b> a short log of what changed in this document, when and by whom.</p>
+  <div class="table-wrap"><table>
+    <tr><th>Version</th><th>Date</th><th>Author</th><th>Change</th></tr>
+    <tr><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+    <tr><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td><td contenteditable class="ex"></td></tr>
+  </table></div>
+</main>
+<script>
+  // Feature index: add a row with the next ID
+  function addRow() {
+    var t = document.getElementById('features');
+    var r = t.insertRow(-1);
+    ['F-' + String(t.rows.length - 1).padStart(2, '0'), 'Feature name', '', '', '', 'Draft', 'https://...']
+      .forEach(function (v) { var c = r.insertCell(-1); c.contentEditable = 'true'; c.textContent = v; });
+  }
+  // Timeline: click toggles shading, double-click toggles a milestone
+  document.getElementById('gantt').addEventListener('click', function (e) {
+    var c = e.target.closest('td.gt');
+    if (c && !c.classList.contains('ms')) c.classList.toggle('on');
+  });
+  document.getElementById('gantt').addEventListener('dblclick', function (e) {
+    var c = e.target.closest('td.gt');
+    if (!c) return;
+    c.classList.remove('on');
+    var has = c.classList.toggle('ms');
+    c.textContent = has ? '◆' : '';
+  });
+  function addGanttRow() {
+    var t = document.getElementById('gantt');
+    var cols = t.rows[0].cells.length;
+    var r = t.insertRow(-1);
+    var l = r.insertCell(-1); l.className = 'lbl'; l.contentEditable = 'true'; l.textContent = 'New workstream';
+    for (var i = 1; i < cols; i++) { var c = r.insertCell(-1); c.className = 'gt'; }
+  }
+  // Remove every example filler and the shaded example timeline
+  function clearExamples() {
+    if (!confirm('Clear placeholder text and timeline shading? This cannot be undone.')) return;
+    document.querySelectorAll('span.ex').forEach(function (el) { el.remove(); });
+    document.querySelectorAll('td.ex, li.ex, th.ex').forEach(function (el) { el.textContent = ''; el.classList.remove('ex'); });
+    document.querySelectorAll('td.gt').forEach(function (el) { el.classList.remove('on', 'ms'); el.textContent = ''; });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+/* =========================================================
+   Design System — Trend Card (shared product card component)
+   A product tile: square thumbnail on top, category eyebrow +
+   product name and an arrow link along the bottom. Used by the
+   home page's Trending Products (from Sanity) and the Coconut
+   products page.
+   Markup:
+   <a class="trend-card" href="...">
+     <div class="trend-card__image"><img ... /></div>
+     <div class="trend-card__body">
+       <div class="trend-card__text"><span class="trend-card__eyebrow">...</span><h3>...</h3></div>
+       <img class="trend-card__icon" src="assets/icons/arrow-diagonal.svg" alt="" />
+     </div>
+   </a>
+   ========================================================= */
+
+.trend-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 300px;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trend-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(20, 20, 30, 0.12);
+}
+
+.trend-card__image {
+  width: 120px;
+  height: 120px;
+  border-radius: 11.43px;
+  overflow: hidden;
+}
+
+.trend-card__image img {
+  filter: var(--image-grade);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.trend-card:hover .trend-card__image img { transform: scale(1.08); }
+
+.trend-card__icon { transition: transform 0.3s ease; }
+
+.trend-card:hover .trend-card__icon { transform: translate(3px, -3px); }
+
+.trend-card__body {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 36px;
+  width: 100%;
+}
+
+.trend-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.trend-card__eyebrow {
+  font-family: 'Lora', serif;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #000;
+}
+
+.trend-card__text h3 {
+  font-family: 'Lora', serif;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 32px;
+  letter-spacing: 0;
+  color: #1a1a1a;
+}
+
+.trend-card__icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .trend-card,
+  .trend-card__image img,
+  .trend-card__icon {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="300" viewBox="0 0 440 300" fill="none" stroke="#272c7d" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <!-- soft backdrop -->
+  <circle cx="220" cy="150" r="104" fill="#e1e3fa" stroke="none"/>
+  <circle cx="108" cy="104" r="22" fill="#d3f0f9" stroke="none"/>
+  <circle cx="352" cy="214" r="16" fill="#d3f0f9" stroke="none"/>
+  <rect x="210" y="132" width="20" height="116" fill="#bdeaf7" stroke="none"/>
+
+  <!-- ground -->
+  <path d="M96 254H356" stroke-opacity="0.5"/>
+  <ellipse cx="220" cy="256" rx="92" ry="6" fill="#272c7d" fill-opacity="0.08" stroke="none"/>
+
+  <!-- parcel -->
+  <rect x="140" y="152" width="160" height="102" rx="8" fill="none"/>
+  <rect x="132" y="132" width="176" height="30" rx="8" fill="#ffffff"/>
+  <path d="M210 132V254M230 132V254"/>
+  <rect x="246" y="190" width="40" height="40" rx="8" fill="#d3f0f9"/>
+  <path d="M266 222C255 217 253 203 266 195C279 203 277 217 266 222Z"/>
+  <path d="M266 220V200" stroke-width="1.5"/>
+
+  <!-- route + pin -->
+  <path d="M306 206C340 206 352 176 348 142" stroke-dasharray="1 9"/>
+  <path d="M348 78C332 78 322 90 322 104C322 124 348 146 348 146C348 146 374 124 374 104C374 90 364 78 348 78Z" fill="#ffffff"/>
+  <circle cx="348" cy="104" r="9" fill="#d3f0f9"/>
+  <ellipse cx="348" cy="152" rx="14" ry="4" fill="#272c7d" fill-opacity="0.12" stroke="none"/>
+  <path d="M110 161L111.96 166.04L117 168L111.96 169.96L110 175L108.04 169.96L103 168L108.04 166.04Z" fill="#7dd9f2" stroke="none"/>
+  <path d="M388 155L389.4 158.6L393 160L389.4 161.4L388 165L386.6 161.4L383 160L386.6 158.6Z" fill="#272c7d" stroke="none"/>
+  <path d="M298 78L299.68 82.32L304 84L299.68 85.68L298 90L296.32 85.68L292 84L296.32 82.32Z" fill="#272c7d" stroke="none"/>
+</svg>

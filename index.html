@@ -3,10 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Truleaf — Premium ingredients, traceable by origin</title>
+<title>Truleaf | Organic Fruit, Vegetable &amp; Ingredient Exporter from India</title>
+<meta name="description" content="Traceable, certified organic fruits, vegetables and bulk ingredients, sourced direct from Indian farmer groups and shipped worldwide. Request a quote or sample.">
+<link rel="canonical" href="https://truleaf.in/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Truleaf">
+<meta property="og:title" content="Truleaf | Organic Fruit, Vegetable &amp; Ingredient Exporter from India">
+<meta property="og:description" content="Traceable, certified organic fruits, vegetables and bulk ingredients, sourced direct from Indian farmer groups and shipped worldwide. Request a quote or sample.">
+<meta property="og:url" content="https://truleaf.in/">
+<meta property="og:image" content="https://truleaf.in/webimg/figma-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#272c7d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Lora:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,500&family=Sora:wght@400&family=Manrope:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/category-card.css">
+<link rel="stylesheet" href="assets/trend-card.css">
+<link rel="stylesheet" href="assets/footer.css">
 <style>
 /* Truleaf Design System — tokens.css (v2, logo-true indigo-primary)
    Mirrors Figma collections: Primitives (indigo / pacific-blue / olive / neutral, 1–11) + Semantic roles. */
@@ -59,13 +72,13 @@
 
   /* ---- Semantic: spacing ---- */
   --space-tight:8px; --space-inline:12px; --space-stack:24px;
-  --space-card:32px; --space-section-sm:90px; --space-section:130px;
+  --lh-title:1.39; --space-card:32px; --space-section-sm:90px; --space-section:130px;
   --space-section-tight:56px; --space-section-tight-sm:32px;
   --page-margin:44px;
   --space-head:40px; --space-head-sm:28px;
 
   /* ---- Semantic: layout ---- */
-  --container-max:1240px; --container-narrow:1040px;
+  --container-max:1200px; --container-narrow:1040px;
 
   /* ---- Semantic: color (accent) ---- */
   --text-accent-warm:#e9dcc4;
@@ -73,11 +86,11 @@
   /* ---- Radius ---- */
   --radius-sm:8px; --radius-md:10px; --radius-card:20px; --radius-lg:14px; --radius-control:999px;
 
-  /* ---- Type ---- */
-  --font-display:'Sora',sans-serif;
+  /* ---- Type: design-system typefaces only (Lora + Instrument Sans) ---- */
+  --font-display:'Instrument Sans',sans-serif;
   --font-header:'Lora',serif;
-  --font-body:'Inter',sans-serif;
-  --font-mono:'IBM Plex Mono',monospace;
+  --font-body:'Instrument Sans',sans-serif;
+  --font-mono:'Instrument Sans',sans-serif;
 
   /* ---- Motion ---- */
   --ease-out:cubic-bezier(.2,.7,.2,1);
@@ -85,7 +98,7 @@
 }
 
 /* type ramp utilities (match Figma semantic type roles) */
-.t-display{ font-family:var(--font-header); font-weight:500; font-size:clamp(40px,6vw,74px); line-height:1.05; letter-spacing:-.01em; }
+.t-display{ font-family:var(--font-header); font-weight:500; font-size:clamp(32px,5vw,56px); line-height:1.12; letter-spacing:-.01em; }
 .t-h1{ font-family:var(--font-header); font-weight:500; font-size:clamp(32px,4.6vw,46px); line-height:1.14; letter-spacing:-.005em; }
 .t-h2{ font-family:var(--font-header); font-weight:500; font-size:clamp(28px,3.8vw,38px); line-height:1.14; letter-spacing:-.005em; }
 .t-h3{ font-family:var(--font-header); font-weight:500; font-size:22px; line-height:1.2; letter-spacing:0; }
@@ -112,54 +125,58 @@
   a{color:inherit;text-decoration:none;} ul{list-style:none;} img{display:block;max-width:100%;}
   :focus-visible{ outline:2px solid var(--brand-primary); outline-offset:3px; border-radius:4px; }
 
-  /* ---------------- NAV (floating glass pill) ---------------- */
-  .nav-wrap{ position:fixed; top:22px; left:0; right:0; z-index:100; display:flex; justify-content:center; padding:0 22px; transition:top var(--dur-med) var(--ease-out); }
-  .nav-wrap.scrolled{ top:14px; }
-  .nav-pill{
-    width:100%; max-width:1180px; display:flex; align-items:center; justify-content:space-between; gap:24px;
-    padding:11px 14px 11px 24px; border-radius:var(--radius-control);
-    background:rgba(255,255,255,0.12);
-    backdrop-filter:blur(20px) saturate(150%); -webkit-backdrop-filter:blur(20px) saturate(150%);
-    border:1px solid rgba(255,255,255,0.28);
-    box-shadow:0 14px 40px rgba(10,11,23,0.18), inset 0 1px 0 rgba(255,255,255,0.25);
-    transition:background var(--dur-med) var(--ease-out), border-color var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out);
+  /* ---------------- NAV (shared site component — matches every other page) ---------------- */
+  .hero-nav-slot{ position:relative; z-index:10; padding:28px var(--page-margin) 0; flex-shrink:0; }
+  .nav {
+    max-width:1200px; margin:0 auto; width:100%;
+    background:#fff; backdrop-filter:blur(10px);
+    box-shadow:0 10px 15px rgba(26,36,23,0.1);
+    border-radius:999px; display:flex; align-items:center; justify-content:space-between;
+    padding:11px 14px 11px 24px; height:68px; position:relative;
   }
-  .nav-wrap.scrolled .nav-pill{
-    background:rgba(245,244,238,0.85); border-color:var(--border-subtle);
-    box-shadow:0 12px 34px rgba(21,21,23,0.1), inset 0 1px 0 rgba(255,255,255,0.6);
-  }
-  .nav-logo{ font-family:var(--font-display); font-weight:700; font-size:20px; letter-spacing:-.02em; color:var(--white); transition:color var(--dur-med) var(--ease-out); flex-shrink:0; }
-  .nav-wrap.scrolled .nav-logo{ color:var(--brand-primary); }
-  .nav-links{ display:flex; align-items:center; gap:32px; }
-  .nav-links a{ font-size:14px; font-weight:500; color:var(--white); padding:8px 0; position:relative; transition:color var(--dur-med) var(--ease-out); display:flex; align-items:center; gap:5px; }
-  .nav-wrap.scrolled .nav-links a{ color:var(--text-primary); }
-  .nav-links a::after{ content:''; position:absolute; left:0; bottom:2px; width:0; height:1.5px; background:var(--brand-accent); transition:width var(--dur-fast) var(--ease-out); }
-  .nav-links a:hover::after{ width:100%; }
-  .nav-links a svg{ width:9px; height:9px; opacity:.65; }
-  .nav-cta{ flex-shrink:0; display:inline-flex; align-items:center; gap:8px; font-size:13.5px; font-weight:600; padding:11px 22px; border-radius:var(--radius-control); background:var(--white); color:var(--brand-primary); border:1px solid transparent; transition:background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out); }
-  .nav-wrap.scrolled .nav-cta{ background:var(--brand-primary); color:var(--white); }
-  .nav-cta:hover{ transform:translateY(-1px); }
-  .nav-cta svg{ width:12px; height:12px; }
-  .nav-burger{ display:none; color:var(--white); font-size:22px; background:none; border:none; cursor:pointer; z-index:110; position:relative; }
-  .nav-wrap.scrolled .nav-burger{ color:var(--text-primary); }
-  @media(max-width:920px){ .nav-links{ display:none; } .nav-burger{ display:block; } }
+  .nav__logo{ display:flex; align-items:center; gap:8px; flex-shrink:0; transition:opacity .2s ease; }
+  .nav__logo:hover{ opacity:.75; }
+  .nav__logo-mark{ height:24px; width:auto; }
+  .nav__logo-text{ height:12px; width:auto; }
+  .nav__links{ display:flex; align-items:center; gap:30px; font-weight:500; font-size:14px; color:var(--text-primary); }
+  .nav__links a{ position:relative; transition:color .2s ease; }
+  .nav__links a::after{ content:''; position:absolute; left:0; bottom:-4px; width:0; height:1.5px; background:currentColor; transition:width .25s ease; }
+  .nav__links a:hover::after{ width:100%; }
+  .nav__cta{ background:var(--brand-primary); color:#fff; font-weight:600; font-size:13px; padding:11px 22px; border-radius:999px; flex-shrink:0; }
+  .nav__cta--mobile{ display:none; }
+  .nav__toggle{ display:none; flex-direction:column; justify-content:center; gap:5px; width:32px; height:32px; background:none; border:none; cursor:pointer; padding:0; }
+  .nav__toggle span{ display:block; width:100%; height:2px; background:var(--text-primary); border-radius:2px; transition:transform .25s ease, opacity .25s ease; }
 
-  .mobile-menu{ position:fixed; inset:0; z-index:105; background:var(--bg-brand-deep); display:flex; flex-direction:column; justify-content:center; align-items:center; gap:28px; opacity:0; pointer-events:none; transition:opacity .35s var(--ease-out); }
-  .mobile-menu.is-open{ opacity:1; pointer-events:auto; }
-  .mobile-menu a{ font-family:var(--font-display); font-size:24px; font-weight:600; color:var(--white); }
-  .mobile-menu .btn{ margin-top:12px; }
+  @media(max-width:900px){
+    .nav__links{
+      position:absolute; top:calc(100% + 12px); left:0; right:0;
+      background:#fff; border-radius:24px; box-shadow:0 10px 30px rgba(26,36,23,0.15);
+      flex-direction:column; align-items:flex-start; gap:4px; padding:16px 24px;
+      max-height:0; overflow:hidden; opacity:0; pointer-events:none;
+      transition:max-height .3s ease, opacity .2s ease, padding .3s ease;
+    }
+    .nav__links a:not(.nav__cta){ width:100%; padding:10px 0; }
+    .nav__links.is-open{ max-height:420px; opacity:1; pointer-events:auto; padding:16px 24px 20px; }
+    .nav__links a.nav__cta--mobile{ display:flex; width:100%; justify-content:center; padding:14px 22px; margin-top:8px; }
+    .nav > .nav__cta:not(.nav__cta--mobile){ display:none; }
+    .nav{ padding:11px 24px; } /* equal left/right: the 14px right padding is for the desktop CTA pill */
+    .nav__toggle{ display:flex; width:28px; height:28px; }
+    .nav__toggle.is-open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+    .nav__toggle.is-open span:nth-child(2){ opacity:0; }
+    .nav__toggle.is-open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  }
 
   /* ---------------- HERO CAROUSEL ---------------- */
-  .hero{ position:relative; height:100vh; min-height:700px; overflow:hidden; background:var(--bg-brand-deep); }
+  .hero{ position:relative; height:100vh; min-height:600px; overflow:hidden; background:var(--bg-brand-deep); display:flex; flex-direction:column; }
   .hero-slide{ position:absolute; inset:0; opacity:0; }
   .hero-slide.is-active{ opacity:1; z-index:2; }
   .hero-slide img{ position:absolute; inset:0; width:100%; height:112%; object-fit:cover; }
   .hero-scrim{ position:absolute; inset:0; z-index:3; background:linear-gradient(180deg, rgba(10,11,23,0.42) 0%, rgba(10,11,23,0.30) 45%, rgba(10,11,23,0.82) 100%); }
-  .hero-content{ position:relative; z-index:4; max-width:var(--container-max); margin:0 auto; padding:0 var(--page-margin); height:100%; display:flex; flex-direction:column; justify-content:flex-end; padding-bottom:var(--space-section); }
+  .hero-content{ position:relative; z-index:4; width:min(100% - 2 * var(--page-margin), var(--container-max)); margin:0 auto; flex:1; min-height:0; display:flex; flex-direction:column; justify-content:flex-end; padding-bottom:120px; }
   .hero-title{ color:var(--white); max-width:900px; }
-  .hero-title .line{ display:block; overflow:hidden; }
+  .hero-title .line{ display:block; overflow:hidden; padding-bottom:0.18em; margin-bottom:-0.18em; }
   .hero-title .line span{ display:inline-block; }
-  .hero-sub{ font-family:var(--font-display); font-weight:300; font-size:16px; line-height:1.4; color:rgba(255,255,255,0.9); max-width:470px; margin:24px 0 34px; }
+  .hero-sub{ font-family:var(--font-display); font-weight:400; font-size:16px; line-height:1.4; color:rgba(255,255,255,0.9); max-width:748px; margin:16px 0 40px; }
   .hero-actions{ display:flex; gap:15px; }
   .btn{ display:inline-flex; align-items:center; gap:9px; font-size:14px; font-weight:600; padding:16px 28px; border-radius:var(--radius-control); cursor:pointer; border:1px solid transparent; transition:background var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
   .btn svg{ width:14px; height:14px; }
@@ -173,7 +190,7 @@
   .btn-brand{ background:var(--brand-primary); color:var(--text-on-dark); flex-shrink:0; white-space:nowrap; }
   .btn-brand:hover{ background:var(--brand-primary-hover); transform:translateY(-2px); }
 
-  .hero-thumbs{ position:absolute; bottom:46px; right:var(--page-margin); z-index:6; display:flex; gap:10px; }
+  .hero-thumbs{ position:absolute; bottom:46px; right:max(var(--page-margin), calc((100% - var(--container-max)) / 2)); z-index:6; display:flex; gap:10px; }
   .hero-thumb{ width:80px; height:58px; border-radius:var(--radius-sm); overflow:hidden; cursor:pointer; border:2px solid transparent; opacity:.55; transition:opacity var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
   .hero-thumb img{ width:100%; height:100%; object-fit:cover; }
   .hero-thumb.is-active{ opacity:1; border-color:var(--white); }
@@ -181,124 +198,143 @@
   .hero-scroll .mouse{ width:22px; height:34px; border:1px solid rgba(255,255,255,0.5); border-radius:12px; position:relative; }
   .hero-scroll .mouse::after{ content:''; position:absolute; left:50%; top:7px; transform:translateX(-50%); width:3px; height:6px; border-radius:2px; background:var(--white); animation:scrolldot 1.6s var(--ease-out) infinite; }
   @keyframes scrolldot{ 0%{opacity:1;top:7px;} 70%{opacity:0;top:16px;} 100%{opacity:0;} }
-  @media(max-width:920px){ .hero-thumbs{ display:none; } .hero-content{ padding-bottom:96px; } }
+  @media(max-width:920px){ .hero-thumbs{ display:none; } .hero-content{ padding-bottom:112px; } }
 
   /* ---------------- WHO WE ARE ---------------- */
-  .mission{ padding:var(--space-section) var(--page-margin); background:var(--white); }
-  .mission-eyebrow-dot{ width:8px; height:8px; border-radius:50%; background:var(--brand-accent); margin:0 auto 24px; }
-  .mission-inner{ max-width:var(--container-narrow); margin:0 auto; text-align:center; } /* narrower container: centered prose reads better tighter than the standard content width */
-  .eyebrow{ display:inline-flex; align-items:center; gap:8px; color:var(--text-label); margin-bottom:28px; }
-  .eyebrow::before,.eyebrow::after{ content:''; width:24px; height:1px; background:var(--text-label); }
+  .mission{ padding:109px clamp(16px,5.6vw,80px); background:var(--white); }
+  .mission-inner{ max-width:716px; margin:0 auto 58px; display:flex; flex-direction:column; align-items:center; gap:16px; text-align:center; }
+  .mission-title{ font-family:var(--font-header); font-weight:400; font-size:36px; line-height:var(--lh-title); color:#1e1e1e; text-wrap:balance; }
+  .mission-lede{ font-family:var(--font-body); font-weight:400; font-size:16px; line-height:1.4; color:var(--text-primary); }
 
-  /* three-card row under mission: a stat card, a photo/vision card, a dark statement card */
-  .mission-cards{ display:flex; gap:var(--space-stack); align-items:stretch; max-width:var(--container-max); margin:72px auto 0; text-align:left; }
-  .mission-card{ flex:1 1 33.3334%; min-height:340px; position:relative; overflow:hidden; border-radius:var(--radius-md); padding:var(--space-card); display:flex; flex-direction:column; justify-content:space-between; }
-  .mission-card-title{ font-family:var(--font-header); font-weight:500; font-size:clamp(19px,1.8vw,23px); line-height:1.3; }
-  .mission-card-badge{ position:absolute; top:var(--space-card); width:40px; height:40px; border-radius:var(--radius-control); display:flex; align-items:center; justify-content:center; }
-  .mission-card-badge svg{ width:17px; height:17px; }
+  /* three-card row under mission: a stat card, a photo/vision card, a teal statement card */
+  .mission-cards{ display:flex; gap:12px; align-items:stretch; max-width:1280px; margin:0 auto; text-align:left; }
+  .mission-card{ box-sizing:border-box; flex:1 1 0; min-width:0; min-height:350px; position:relative; overflow:hidden; border-radius:16px; padding:24px; display:flex; flex-direction:column; }
+  .mission-card-title{ font-family:'Sora',sans-serif; font-weight:400; font-size:24px; line-height:1.2; letter-spacing:-.3px; text-transform:uppercase; }
 
-  .mission-card--stat{ background:var(--bg-neutral); }
-  .mission-card--stat .mission-card-title{ color:var(--brand-accent); margin-bottom:var(--space-stack); }
-  .m-stat-num{ font-family:var(--font-display); font-weight:600; font-size:clamp(40px,4.5vw,56px); line-height:1; letter-spacing:-.02em; color:var(--text-primary); display:block; }
-  .mission-card--stat p{ font-family:var(--font-body); font-size:14px; line-height:1.6; color:var(--text-secondary); margin-top:var(--space-tight); max-width:32ch; }
+  .mission-card--stat{ background:#f3f3f7; justify-content:space-between; }
+  .mission-card--stat .mission-card-title{ color:#1e6b7f; max-width:308px; }
+  .mission-card-foot{ display:flex; flex-direction:column; gap:8px; }
+  .m-stat-num{ font-family:var(--font-header); font-weight:400; font-size:48px; line-height:1.2; letter-spacing:-1.2px; color:#181818; display:flex; align-items:center; min-height:67.2px; }
+  .mission-card--stat p{ font-family:var(--font-body); font-size:16px; line-height:1.4; color:var(--text-secondary); }
 
-  .mission-card--photo{ padding:0; color:var(--text-on-dark); }
-  .mission-card--photo img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-  .mission-card--photo::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,11,23,0.05) 0%, rgba(10,11,23,0.1) 45%, rgba(10,11,23,0.72) 100%); }
-  .mission-card--photo .mission-card-badge{ left:var(--space-card); background:rgba(255,255,255,0.16); border:1px solid rgba(255,255,255,0.4); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); color:var(--white); z-index:2; }
-  .mission-card--photo .mission-card-body{ position:relative; z-index:2; padding:var(--space-card); margin-top:auto; }
-  .mission-card--photo .t-label{ color:var(--white); margin-bottom:var(--space-tight); display:block; }
-  .mission-card--photo p{ font-family:var(--font-body); font-size:14px; line-height:1.6; color:rgba(255,255,255,0.82); }
+  .mission-card--photo{ justify-content:flex-end; color:var(--white); }
+  .mission-card--photo > img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .mission-card--photo::after{ content:''; position:absolute; inset:0; background:linear-gradient(-5.74deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%); }
+  .mission-card--photo .mission-card-body{ position:relative; z-index:2; display:flex; flex-direction:column; gap:8px; }
+  .mission-card--photo .mission-card-title{ font-family:'Manrope',sans-serif; font-weight:600; line-height:33.6px; letter-spacing:0; color:var(--white); }
+  .mission-card--photo p{ font-family:var(--font-body); font-size:16px; line-height:1.4; color:#dedee6; max-width:343px; }
 
-  .mission-card--dark{ background:var(--bg-brand-deep); color:var(--text-on-dark); }
-  .mission-card--dark .t-label{ color:rgba(255,255,255,0.75); }
-  .mission-card--dark .mission-card-badge{ right:var(--space-card); border:1px solid rgba(255,255,255,0.4); color:var(--white); }
-  .mission-card--dark .mission-card-title{ color:var(--text-on-dark); margin:var(--space-stack) 0; }
-  .mission-card-foot{ display:flex; align-items:center; gap:12px; }
-  .mission-avatar{ width:32px; height:32px; border-radius:50%; object-fit:cover; border:2px solid rgba(255,255,255,0.3); flex-shrink:0; }
-  .mission-card-foot span{ font-family:var(--font-body); font-size:13.5px; color:rgba(255,255,255,0.75); }
+  .mission-card--teal{ background:#2396b4; color:#f3f3f7; gap:72px; }
+  .mission-card--teal > *{ margin:0 -1px 0 -10px; } /* design inset: content starts 14px from the left edge, 23px from the right */
+  .mission-teal-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:16px; font-family:var(--font-body); font-size:16px; line-height:1.4; }
+  .mission-pill{ flex-shrink:0; display:flex; align-items:center; justify-content:center; box-sizing:border-box; height:44px; padding:9px 17px; border:1px solid var(--white); border-radius:100px; }
+  .mission-pill img{ width:22px; height:17.5px; display:block; }
+  .mission-card--teal .mission-card-title{ color:#ddf5fb; max-width:376px; }
+  .mission-teal-foot{ display:flex; align-items:center; gap:7px; font-family:var(--font-body); font-size:16px; line-height:1.4; }
+  .mission-teal-foot span{ max-width:233px; }
+  .mission-badge{ flex-shrink:0; width:73px; height:56px; border-radius:100px; background:var(--white); display:flex; align-items:center; justify-content:center; }
+  .mission-badge img{ width:31px; height:31px; display:block; }
 
   @media(max-width:920px){
-    .mission{ padding:var(--space-section-sm) var(--page-margin); }
+    .mission{ padding:64px clamp(16px,5.6vw,80px); }
+    .mission-title{ font-size:30px; line-height:1.3; }
     .mission-cards{ flex-direction:column; }
+    .mission-card{ flex:none; }
     .mission-card{ min-height:320px; }
+    .mission-card--teal > *{ margin:0; }
+    .mission-card--teal{ min-height:0; gap:40px; }
   }
   @media(max-width:520px){
+    .mission-title{ font-size:26px; }
+    .mission-title__br{ display:none; }
     .mission-card{ padding:24px 22px; min-height:280px; }
-    .mission-card--photo .mission-card-body{ padding:24px 22px; }
+    .mission-card--teal{ min-height:0; gap:32px; }
   }
 
   /* ---------------- SOURCING / ORIGIN ---------------- */
   .sourcing{ padding:var(--space-section) var(--page-margin); background:var(--bg-neutral); }
   .sourcing-inner{ max-width:var(--container-max); margin:0 auto; }
   .sourcing-head{ display:grid; grid-template-columns:1.15fr 1fr; gap:60px; align-items:start; margin-bottom:56px; }
-  .sourcing-title{ font-family:var(--font-header); font-weight:500; font-size:clamp(34px,4.2vw,54px); line-height:1.12; letter-spacing:-.005em; color:var(--text-primary); }
+  .sourcing-title{ font-family:var(--font-header); font-weight:400; font-size:36px; line-height:var(--lh-title); letter-spacing:-.9px; color:var(--text-primary); }
   .sourcing-title em{ font-style:normal; color:var(--brand-primary); }
   .sourcing-aside{ padding-top:8px; }
-  .sourcing-aside p{ font-family:var(--font-body); font-size:16px; line-height:1.65; color:var(--text-secondary); max-width:440px; }
+  .sourcing-aside p{ font-family:var(--font-body); font-weight:400; font-size:16px; line-height:1.4; color:var(--text-primary); max-width:440px; }
   .sourcing-stats{ display:flex; gap:56px; margin-top:32px; }
-  .s-stat b{ font-family:var(--font-display); font-weight:700; font-size:32px; color:var(--brand-primary); display:block; letter-spacing:-.02em; }
-  .s-stat span{ font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--text-secondary); display:block; margin-top:8px; padding-top:10px; border-top:1px solid var(--border-subtle); }
+  .s-stat b{ font-family:var(--font-header); font-weight:400; font-size:32px; line-height:1.28; letter-spacing:-.6px; color:#000; display:block; }
+  .s-stat span{ font-family:var(--font-body); font-weight:400; font-size:14px; line-height:1.4; color:var(--blue-7); display:block; margin-top:4px; }
   .sourcing-figure{ position:relative; }
-  .sourcing-figure-media{ position:relative; border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:16/8; }
-  .sourcing-figure-media img{ width:100%; height:112%; object-fit:cover; }
+  .sourcing-figure-media{ position:relative; border-radius:36px; overflow:hidden; isolation:isolate; aspect-ratio:16/10; }
+  .sourcing-figure-media img{ position:absolute; left:0; top:-15%; width:100%; height:130%; object-fit:cover; } /* taller than the frame and centred, so the parallax shift can never expose the edge */
   .sourcing-figure-media::after{ content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(10,11,23,0.06) 0%, rgba(10,11,23,0.02) 35%, rgba(10,11,23,0.38) 100%); pointer-events:none; }
-  .sourcing-card{ position:absolute; right:32px; bottom:32px; z-index:2; max-width:360px; background:var(--bg-teal-deep); backdrop-filter:blur(5px); -webkit-backdrop-filter:blur(5px); color:var(--text-on-dark); border-radius:var(--radius-md); padding:28px 30px; box-shadow:0 20px 50px rgba(10,11,23,0.28); }
-  .sourcing-card-icon{ width:36px; height:30px; color:var(--white); fill:currentColor; margin-bottom:8px; }
-  .sourcing-card h3{ font-family:var(--font-header); font-weight:500; font-size:20px; letter-spacing:-.005em; margin-bottom:12px; }
-  .sourcing-card p{ font-family:var(--font-display); font-weight:300; font-size:16px; line-height:1.4; color:rgba(255,255,255,0.9); }
+  .sourcing-card{ position:absolute; left:32px; bottom:32px; z-index:2; width:min(400px, calc(100% - 64px)); background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.24); backdrop-filter:blur(14px) saturate(120%); -webkit-backdrop-filter:blur(14px) saturate(120%); color:var(--text-on-dark); border-radius:24px; padding:28px 28px 26px; box-shadow:0 20px 50px rgba(10,11,23,0.18); }
+  .sourcing-card-icon{ display:block; width:48px; height:40px; color:var(--white); fill:currentColor; opacity:1; margin-bottom:16px; }
+  .sourcing-card h3{ font-family:var(--font-header); font-weight:400; font-size:26px; line-height:1.2; letter-spacing:-.4px; margin-bottom:10px; }
+  .sourcing-card p{ font-family:var(--font-display); font-weight:400; font-size:14px; line-height:1.5; color:rgba(255,255,255,.82); text-wrap:pretty; }
   @media(max-width:920px){
     .sourcing{ padding:var(--space-section-sm) var(--page-margin); }
     .sourcing-head{ grid-template-columns:1fr; gap:28px; }
     .sourcing-figure-media{ aspect-ratio:2/3; }
-    .sourcing-card{ right:20px; bottom:28px; left:20px; max-width:none; }
+    .sourcing-card{ right:20px; bottom:20px; left:20px; width:auto; max-width:none; padding:32px 28px; }
   }
   @media(max-width:520px){
     .sourcing-stats{ gap:32px; }
     .sourcing-figure-media{ aspect-ratio:3/5; }
-    .sourcing-card{ right:14px; bottom:20px; left:14px; padding:20px 22px; }
+    .sourcing-card{ right:16px; bottom:16px; left:16px; width:auto; padding:28px 24px; }
+    .sourcing-card h3{ font-size:26px; }
+    .sourcing-card-cta{ margin-top:24px; }
   }
 
   /* ---------------- SECTION HEAD (shared: eyebrow + title, used by any section) ---------------- */
   .section-head{ margin-bottom:var(--space-head); }
   .section-head .t-label{ color:var(--text-label); margin-bottom:16px; display:block; }
-  .section-head-title{ font-family:var(--font-header); font-weight:500; font-size:clamp(28px,3.9vw,48px); line-height:1.3; letter-spacing:-.005em; color:var(--text-primary); }
+  .section-head-title{ font-family:var(--font-header); font-weight:400; font-size:clamp(28px,2.5vw,36px); line-height:var(--lh-title); letter-spacing:0; color:var(--text-primary); }
   .section-head--narrow{ max-width:820px; }
   .section-head--split{ display:flex; align-items:flex-end; justify-content:space-between; gap:32px; }
   @media(max-width:920px){ .section-head--split{ flex-direction:column; align-items:flex-start; gap:20px; } }
   @media(max-width:520px){ .section-head{ margin-bottom:var(--space-head-sm); } }
 
   /* ---------------- CAPABILITIES ---------------- */
-  .capabilities{ padding:var(--space-section) var(--page-margin); background:var(--white); }
-  .capabilities-inner{ max-width:var(--container-max); margin:0 auto; }
+  .capabilities{ padding:80px clamp(16px,2.8vw,40px); background:var(--white); overflow-x:clip; } /* entry animation slides cards in from the side: don't let that widen the page on mobile */
+  .capabilities-inner{ max-width:1360px; margin:0 auto; }
+  .capabilities .section-head{ display:flex; flex-direction:column; gap:8px; margin-bottom:40px; }
+  .capabilities .section-head-title{ max-width:783px; color:#1e1e1e; }
 
-  .cap-row{ display:flex; align-items:stretch; gap:var(--space-stack); }
-  .cap-figure{ flex:0 0 42%; position:relative; border-radius:var(--radius-sm); overflow:hidden; min-height:340px; }
-  .cap-figure img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-  .cap-cards{ flex:1; display:flex; gap:var(--space-stack); min-width:0; }
-  .cap-col{ flex:1; display:flex; flex-direction:column; gap:var(--space-stack); min-width:0; }
-  .cap-card{ flex:3 1 0; display:flex; flex-direction:column; justify-content:flex-end; gap:11px; background:var(--bg-neutral); border-radius:var(--radius-sm); padding:var(--space-card); }
-  .cap-col:first-child .cap-card:first-child{ flex-grow:4; }
-  .cap-col:last-child .cap-card:last-child{ flex-grow:4; }
+  /* image 553px : cards 783px at the 1360px design width; row is 698px tall, cards split it 386 / 288 */
+  .cap-row{ display:flex; align-items:stretch; gap:24px; min-height:698px; }
+  .cap-figure{ flex:0 0 40.7%; position:relative; border-radius:12px; overflow:hidden; }
+  .cap-figure img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 100%; } /* keeps the crate nearer the middle of the frame */
+  .cap-stat{ position:absolute; left:26px; bottom:40px; z-index:2; display:flex; flex-direction:column; gap:24px; padding:24px; border:1px solid rgba(255,255,255,0.2); border-radius:16px; background:rgba(255,255,255,0.1); backdrop-filter:blur(7.8px); -webkit-backdrop-filter:blur(7.8px); white-space:nowrap; }
+  .cap-stat-num{ font-family:var(--font-header); font-weight:400; font-size:50px; line-height:36px; color:#7dd9f2; }
+  .cap-stat-label{ font-family:var(--font-body); font-weight:600; font-size:16px; line-height:15px; letter-spacing:1px; color:var(--white); }
+  .cap-cards{ flex:1; display:flex; gap:24px; min-width:0; }
+  .cap-col{ flex:1; display:grid; grid-template-rows:386fr 288fr; gap:24px; min-width:0; }
+  .cap-col:last-child{ grid-template-rows:288fr 386fr; }
+  .cap-card{ box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between; background:var(--bg-neutral); border-radius:12px; padding:37px 25px; }
   /* CSS fill wins over the inline fill="none" attribute, so the <use> clone renders */
-  .cap-icon{ width:56px; height:56px; flex-shrink:0; color:var(--brand-primary); fill:currentColor; }
-  .cap-card h3{ font-family:var(--font-body); font-weight:600; font-size:18px; color:var(--text-primary); }
-  .cap-card p{ font-family:var(--font-body); font-size:15px; line-height:1.6; color:var(--text-secondary); }
+  .cap-icon{ width:64px; height:64px; flex-shrink:0; color:var(--brand-primary); fill:currentColor; }
+  /* icon pinned to the top of the card, title + text pinned to the bottom (8px apart) */
+  .cap-card h3{ margin-top:auto; font-family:var(--font-body); font-weight:600; font-size:20px; line-height:20px; color:#333; }
+  .cap-card h3 + p{ margin-top:8px; }
+  .cap-card p{ font-family:var(--font-body); font-weight:400; font-size:16px; line-height:1.4; color:#333; }
 
-  @media(max-width:920px){
-    .capabilities{ padding:var(--space-section-sm) var(--page-margin); }
-    .cap-row{ flex-direction:column; }
-    .cap-figure{ flex-basis:auto; aspect-ratio:16/9; min-height:0; }
+  /* image + two card columns need about 1180px; below that the cards get cramped, so the image goes on top
+     and the four cards sit in a two-column grid underneath */
+  @media(max-width:1180px){
+    .cap-row{ flex-direction:column; min-height:0; }
+    .cap-figure{ flex-basis:auto; aspect-ratio:4/3; }
     .cap-cards{ flex-direction:row; }
-    .cap-card, .cap-col:first-child .cap-card:first-child, .cap-col:last-child .cap-card:last-child{ flex-grow:1; }
+    .cap-col, .cap-col:last-child{ grid-template-rows:none; grid-auto-rows:minmax(250px,auto); }
+  }
+  @media(max-width:920px){
+    .capabilities{ padding:64px clamp(16px,5.6vw,80px); }
   }
   @media(max-width:680px){
     .cap-cards{ flex-direction:column; }
-    .cap-col{ flex-direction:column; }
-    .cap-card{ flex:1 1 0; }
   }
   @media(max-width:520px){
     .cap-card{ padding:24px 22px; }
+    .cap-stat{ left:16px; bottom:16px; padding:16px; gap:16px; }
+    .cap-stat-num{ font-size:40px; }
   }
 
   /* ---------------- HOW WE WORK ---------------- */
@@ -331,8 +367,8 @@
   }
 
   /* ---------------- TRENDING CATEGORIES ---------------- */
-  .trending{ padding:var(--space-section) var(--page-margin); background:var(--bg-neutral); }
-  .trending-inner{ max-width:var(--container-max); margin:0 auto; }
+  .trending{ padding:80px clamp(16px,5.6vw,80px); background:var(--bg-neutral); }
+  .trending-inner{ max-width:1280px; margin:0 auto; }
   .trending-row{ display:flex; gap:var(--space-stack); align-items:stretch; }
   .trending-col{ flex:1; display:flex; flex-direction:column; gap:var(--space-stack); min-width:0; }
 
@@ -357,7 +393,7 @@
   .cat-card:hover .cat-arrow{ background:var(--brand-primary); color:var(--text-on-dark); }
 
   @media(max-width:920px){
-    .trending{ padding:var(--space-section-sm) var(--page-margin); }
+    .trending{ padding:64px clamp(16px,5.6vw,80px); }
     .trending-row{ flex-direction:column; }
     .cat-card--featured .cat-collage{ width:45%; }
   }
@@ -367,202 +403,249 @@
   }
 
   /* ---------------- TRENDING PRODUCTS ---------------- */
-  .products{ padding:var(--space-section) var(--page-margin); background:var(--bg-neutral); }
-  .products-inner{ max-width:var(--container-max); margin:0 auto; }
-  .products-row{ display:flex; gap:var(--space-stack); align-items:stretch; }
-
-  /* product card: white card, inset square image, label + name + arrow beneath — all within the same padding */
-  .product-card{ flex:1; min-width:0; display:flex; flex-direction:column; background:var(--white); border-radius:var(--radius-md); padding:var(--space-stack); transition:transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out); }
-  .product-card:hover{ transform:translateY(-3px); box-shadow:0 14px 34px rgba(10,11,23,0.1); }
-  .product-figure{ position:relative; aspect-ratio:1/1; border-radius:var(--radius-sm); overflow:hidden; margin-bottom:var(--space-card); }
-  .product-figure img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-  .product-index{ color:var(--text-secondary); display:block; margin-bottom:var(--space-tight); }
-
-  @media(max-width:920px){
-    .products{ padding:var(--space-section-sm) var(--page-margin); }
-    .products-row{ flex-direction:column; }
-  }
+  .products{ padding:80px clamp(16px,5.6vw,80px); background:var(--bg-neutral); }
+  .products-inner{ max-width:1280px; margin:0 auto; display:flex; flex-direction:column; gap:44px; }
+  .products-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap; }
+  .products-titles{ display:flex; flex-direction:column; gap:12px; }
+  .section-eyebrow{ font-family:var(--font-body); font-weight:500; font-size:14px; line-height:18px; text-transform:uppercase; color:#333; }
+  .products-titles .section-head-title{ font-size:36px; line-height:var(--lh-title); letter-spacing:-.9px; color:#333; }
+  .products-head .btn{ border:0; background:#2a2c7c; font-family:var(--font-body); font-weight:500; font-size:16px; line-height:24px; padding:16px 24px; }
+  .products-head .btn:hover{ background:var(--brand-primary-hover); }
+  /* cards: shared .trend-card (assets/trend-card.css) */
+  .products-row{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+  @media(max-width:1100px){ .products-row{ grid-template-columns:repeat(2,1fr); } }
+  @media(max-width:920px){ .products{ padding:64px clamp(16px,5.6vw,80px); } }
+  @media(max-width:520px){ .products-row{ grid-template-columns:1fr; } .products-titles .section-head-title{ font-size:28px; } }
 
   /* ---------------- CERTIFICATION STRIP ---------------- */
-  .certs{ padding:var(--space-section) var(--page-margin); background:var(--bg-page); }
+  .certs{ padding:var(--space-section) var(--page-margin); background:var(--white); }
   .certs-inner{ max-width:var(--container-narrow); margin:0 auto; text-align:center; } /* narrower container: centered statement reads tighter, mirrors .mission-inner */
-  .certs-statement{ font-family:var(--font-header); font-weight:500; font-size:clamp(22px,2.6vw,32px); line-height:1.4; color:var(--text-primary); }
+  .certs-statement{ font-family:var(--font-header); font-weight:400; font-size:30px; line-height:var(--lh-title); letter-spacing:-.9px; text-wrap:balance; color:var(--text-primary); } /* one step below the 36px section titles so it doesn't overpower the logos */
   .certs-row{ display:flex; justify-content:center; gap:var(--space-card); flex-wrap:wrap; margin-top:56px; }
-  .cert-badge{ display:flex; flex-direction:column; align-items:center; gap:14px; width:120px; }
-  .cert-badge-circle{ width:80px; height:80px; border-radius:50%; border:1px solid var(--border-subtle); display:flex; align-items:center; justify-content:center; font-family:var(--font-body); font-weight:600; font-size:13px; color:var(--brand-primary); }
+  .cert-badge{ display:flex; flex-direction:column; align-items:center; justify-content:flex-start; gap:14px; min-width:120px; }
+  .cert-badge-logo{ height:80px; width:auto; max-width:150px; object-fit:contain; display:block; } /* wide marks (Sedex) shrink to the width cap instead of stretching the row */
+  .cert-badge-logo--wide{ max-width:200px; }
+  .cert-badge-logo--compact{ height:64px; margin:8px 0; } /* stacked marks (BRCGS) carry more visual weight at the same height */
   .cert-badge span{ font-family:var(--font-mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-secondary); text-align:center; }
   @media(max-width:920px){
     .certs{ padding:var(--space-section-sm) var(--page-margin); }
     .certs-row{ gap:var(--space-stack); }
   }
   @media(max-width:520px){
-    .certs-row{ gap:20px; }
-    .cert-badge{ width:76px; }
-    .cert-badge-circle{ width:64px; height:64px; font-size:11px; }
+    /* 2 x 2 grid: equal cells, every logo centred in the same 72px box so the labels line up */
+    .certs-row{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:32px 16px; margin-top:40px; }
+    .certs-statement{ font-size:26px; }
+    .cert-badge{ min-width:0; gap:12px; }
+    .cert-badge-logo, .cert-badge-logo--wide, .cert-badge-logo--compact{ height:72px; width:100%; max-width:140px; margin:0; object-fit:contain; }
+    .cert-badge-logo--compact{ height:60px; margin:6px 0; max-width:130px; }
+    .cert-badge span{ font-size:10px; }
   }
 
-  /* mission-card teal variant (design calls for a pacific-blue deep card here instead of indigo-deep) */
-  .mission-card--teal{ background:var(--bg-teal-deep); color:var(--text-on-dark); }
-  .mission-card--teal .t-label{ color:rgba(255,255,255,0.75); }
-  .mission-card--teal .mission-card-badge{ right:var(--space-card); border:1px solid rgba(255,255,255,0.4); color:var(--white); }
-  .mission-card--teal .mission-card-title{ color:var(--text-on-dark); margin:var(--space-stack) 0; }
 
   /* ---------------- FEATURED CATEGORIES (list layout) ---------------- */
-  .cat-list-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
-  .cat-list-aside p{ font-family:var(--font-display); font-weight:300; font-size:16px; line-height:1.4; color:var(--text-secondary); max-width:38ch; margin:20px 0 32px; }
+  .cat-list-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
+  .cat-list-aside{ display:flex; flex-direction:column; align-items:flex-start; gap:40px; }
+  .cat-list-head{ display:flex; flex-direction:column; gap:12px; color:#333; }
+  .cat-list-titles{ display:flex; flex-direction:column; }
+  .cat-list-eyebrow{ font-family:var(--font-body); font-weight:500; font-size:14px; line-height:18px; text-transform:uppercase; color:#333; } /* same as .section-eyebrow */
+  .cat-list-titles .section-head-title{ font-size:36px; line-height:var(--lh-title); letter-spacing:-.9px; color:#333; }
+  .cat-list-head p{ font-family:var(--font-body); font-weight:400; font-size:16px; line-height:1.4; color:#333; max-width:322px; }
+  .cat-list-aside .btn{ border:0; background:#2a2c7c; font-family:var(--font-body); font-weight:500; font-size:16px; line-height:24px; padding:16px 24px; }
+  .cat-list-aside .btn:hover{ background:var(--brand-primary-hover); }
   .cat-list{ display:flex; flex-direction:column; }
-  .cat-list-item{ display:flex; align-items:center; gap:24px; padding:28px 0; border-bottom:1px solid var(--border-subtle); }
-  .cat-list-item:first-child{ padding-top:0; }
-  .cat-list-thumb{ flex-shrink:0; width:124px; height:124px; border-radius:var(--radius-sm); overflow:hidden; background:transparent; }
-  .cat-list-thumb img{ width:100%; height:100%; object-fit:contain; }
-  .cat-list-copy{ flex:1; min-width:0; }
-  .cat-list-copy h3{ font-family:var(--font-header); font-weight:400; font-size:32px; line-height:1.28; letter-spacing:-.6px; color:var(--text-primary); margin-bottom:8px; }
-  .cat-list-copy p{ font-family:var(--font-display); font-weight:300; font-size:14px; line-height:1.6; color:var(--neutral-8); }
-  @media(max-width:920px){
+  /* shared .category-card (assets/category-card.css): on the home page every row carries its divider and top padding */
+  .cat-list .category-card{ padding:24px 0 25px; border-bottom:1px solid #e8e8e8; }
+  /* two columns need about 1200px: below that the list column is too narrow and card titles wrap onto 2-3 lines, so stack */
+  @media(max-width:1200px){
     .cat-list-wrap{ grid-template-columns:1fr; gap:32px; }
-    .cat-list-thumb{ width:96px; height:96px; }
-    .cat-list-copy h3{ font-size:26px; }
-  }
-  @media(max-width:520px){
-    .cat-list-item{ gap:16px; padding:20px 0; }
-    .cat-list-thumb{ width:72px; height:72px; }
-    .cat-list-copy h3{ font-size:22px; }
   }
 
   /* ---------------- IMPACT BANNER (full-bleed image, two overlay blocks) ---------------- */
-  .impact{ padding:var(--space-section-tight) var(--page-margin); background:var(--white); }
-  .impact-inner{ max-width:var(--container-max); margin:0 auto; }
-  .impact-figure{ position:relative; border-radius:var(--radius-lg); overflow:hidden; min-height:680px; display:flex; align-items:flex-end; }
+  .impact{ padding:0; background:var(--white); }
+  .impact-inner{ max-width:none; margin:0; }
+  .impact-figure{ position:relative; overflow:hidden; min-height:100vh; min-height:100svh; display:flex; align-items:flex-end; } /* image fills the viewport */
   .impact-figure img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
   .impact-figure::after{ content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(10,11,23,0.15) 0%, rgba(10,11,23,0.05) 30%, rgba(10,11,23,0.55) 100%); }
-  .impact-row{ position:relative; z-index:2; width:100%; display:flex; justify-content:space-between; align-items:flex-end; gap:40px; padding:var(--space-card); }
+  /* overlay blocks sit inside the same 1280px content column as the sections around the banner */
+  .impact-row{ position:relative; z-index:2; box-sizing:border-box; width:100%; max-width:calc(1280px + 2 * clamp(16px,5.6vw,80px)); margin:0 auto; display:flex; justify-content:space-between; align-items:flex-end; gap:40px; padding:var(--space-card) clamp(16px,5.6vw,80px) 64px; }
   .impact-cta{ background:rgba(10,11,23,0.45); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-radius:var(--radius-md); padding:32px; max-width:400px; }
   .impact-cta h3{ font-family:var(--font-header); font-weight:500; font-size:clamp(24px,2.6vw,32px); line-height:1.25; color:var(--white); margin-bottom:24px; }
   .impact-note{ max-width:340px; color:var(--white); }
   .impact-note h4{ font-family:var(--font-body); font-weight:600; font-size:19px; margin-bottom:10px; }
   .impact-note p{ font-size:14px; line-height:1.6; color:rgba(255,255,255,0.82); }
   @media(max-width:920px){
-    .impact{ padding:var(--space-section-tight-sm) var(--page-margin); }
-    .impact-figure{ min-height:520px; }
-    .impact-row{ flex-direction:column; align-items:flex-start; padding:var(--space-stack); }
+    .impact{ padding:0; }
+    .impact-row{ flex-direction:column; align-items:flex-start; padding:var(--space-stack) clamp(16px,5.6vw,80px) 48px; }
     .impact-note{ max-width:none; }
   }
   @media(max-width:520px){
-    .impact-figure{ min-height:460px; }
     .impact-cta{ padding:22px; max-width:none; width:100%; }
   }
 
-  /* ---------------- FOOTER ---------------- */
-  .site-footer{ padding:var(--space-section) var(--page-margin) var(--space-stack); background:var(--brand-primary); color:var(--text-on-dark); }
-  .footer-inner{ max-width:var(--container-max); margin:0 auto; }
-  .footer-grid{ display:flex; justify-content:space-between; gap:var(--space-card); flex-wrap:wrap; }
-  .footer-brand{ max-width:320px; }
-  .footer-logo{ font-family:var(--font-display); font-weight:700; font-size:22px; letter-spacing:-.02em; color:var(--white); }
-  .footer-logo em{ font-style:normal; color:var(--brand-secondary); }
-  .footer-brand p{ font-size:14px; line-height:1.65; color:rgba(255,255,255,0.65); margin:18px 0 22px; }
-  .footer-social{ display:flex; gap:10px; }
-  .footer-social a{ width:36px; height:36px; border-radius:50%; border:1px solid rgba(255,255,255,0.3); display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:11px; color:rgba(255,255,255,0.8); transition:background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
-  .footer-social a:hover{ background:rgba(255,255,255,0.12); border-color:rgba(255,255,255,0.5); }
-  .footer-cols{ display:flex; gap:80px; }
-  .footer-col h4{ font-family:var(--font-mono); font-weight:500; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--brand-secondary); margin-bottom:20px; }
-  .footer-col ul{ display:flex; flex-direction:column; gap:14px; }
-  .footer-col a{ font-size:14px; color:rgba(255,255,255,0.75); transition:color var(--dur-fast) var(--ease-out); }
-  .footer-col a:hover{ color:var(--white); }
-  .footer-col address{ font-style:normal; font-size:14px; line-height:1.7; color:rgba(255,255,255,0.75); }
-  .footer-bottom{ display:flex; justify-content:space-between; align-items:center; gap:16px; margin-top:96px; padding-top:28px; border-top:1px solid rgba(255,255,255,0.15); font-family:var(--font-mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,0.55); }
-  @media(max-width:920px){
-    .site-footer{ padding:var(--space-section-sm) var(--page-margin) var(--space-stack); }
-    .footer-grid{ flex-direction:column; gap:48px; }
-    .footer-cols{ gap:40px; flex-wrap:wrap; }
-    .footer-bottom{ margin-top:56px; }
+  /* ---- Conversion additions ---- */
+  .btn-outline{ background:transparent; color:var(--brand-primary); border-color:var(--brand-primary); }
+  .btn-outline:hover{ background:rgba(39,44,125,0.07); transform:translateY(-2px); }
+  .hero-actions{ flex-wrap:wrap; }
+  .sourcing-card-cta{ margin-top:20px; width:fit-content; background:var(--white); color:var(--brand-primary); border-color:var(--white); font-weight:600; }
+  .sourcing-card-cta:hover{ background:rgba(255,255,255,.88); }
+  .mission-cta{ margin-top:24px; width:fit-content; }
+  .sticky-cta{ display:none; }
+  @media(max-width:680px){
+    .sticky-cta{ display:block; position:fixed; left:16px; right:16px; bottom:16px; z-index:50; text-align:center; padding:16px; border-radius:var(--radius-control); background:var(--brand-primary); color:var(--white); font:600 15px var(--font-body); box-shadow:0 10px 28px rgba(18,20,43,.35); transform:translateY(140%); transition:transform .3s var(--ease-out); }
+    .sticky-cta.is-on{ transform:none; }
+    .site-footer{ padding-bottom:96px; }
   }
-  @media(max-width:520px){
-    .footer-cols{ gap:32px; }
-    .footer-bottom{ flex-direction:column; align-items:flex-start; gap:8px; }
+  .impact-cta{ max-width:460px; }
+  .impact-cta-sub{ font-family:var(--font-body); font-size:16px; line-height:1.5; color:rgba(255,255,255,.85); margin:-8px 0 24px; }
+  .impact-cta-actions{ display:flex; gap:12px; flex-wrap:wrap; }
+
+  /* ---- How buying works: timeline ---- */
+  .buying{ padding:80px var(--page-margin); background:var(--white); }
+  .buying-inner{ max-width:var(--container-max); margin:0 auto; display:flex; flex-direction:column; gap:88px; }
+  .buying-head{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:12px; }
+  .buying .section-head-title{ max-width:none; font-family:var(--font-header); font-weight:400; font-size:36px; line-height:var(--lh-title); letter-spacing:0; color:#1e1e1e; }
+  .buying-steps{ list-style:none; display:grid; grid-template-columns:repeat(4,1fr); gap:32px; position:relative; }
+  .buying-steps::before{ content:''; position:absolute; top:28px; left:12.5%; right:12.5%; height:1px; background:repeating-linear-gradient(90deg,var(--neutral-3) 0 6px,transparent 6px 12px); }
+  .buying-steps li{ position:relative; display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px; padding:0 8px; }
+  .buying-count{ position:relative; z-index:1; width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:var(--white); border:1px solid var(--neutral-2); color:var(--neutral-7); font-family:var(--font-header); font-weight:400; font-size:22px; letter-spacing:0; box-shadow:0 0 0 8px var(--white); }
+  .buying-icon{ display:flex; width:64px; height:64px; margin-top:12px; }
+  .buying-icon img{ width:100%; height:100%; }
+  .buying-steps h3{ font-family:var(--font-header); font-weight:400; font-size:24px; line-height:1.2; color:#1e1e1e; }
+  .buying-steps p{ font-family:var(--font-body); font-weight:400; font-size:16px; line-height:1.4; color:var(--text-primary); max-width:260px; }
+  .buying-actions{ display:flex; gap:15px; flex-wrap:wrap; justify-content:center; }
+  @media(max-width:920px){
+    .buying{ padding:64px var(--page-margin); }
+    .buying .section-head-title{ font-size:30px; line-height:1.3; }
+    .buying-inner{ gap:48px; }
+    .buying-steps{ grid-template-columns:1fr; gap:36px; }
+    .buying-steps::before{ top:28px; bottom:28px; left:27px; right:auto; width:1px; height:auto; background:repeating-linear-gradient(180deg,var(--neutral-3) 0 6px,transparent 6px 12px); }
+    .buying-steps li{ flex-direction:column; align-items:flex-start; text-align:left; padding-left:84px; min-height:56px; }
+    .buying-count{ position:absolute; left:0; top:0; }
+    .buying-steps p{ max-width:none; }
+    .buying-head{ align-items:flex-start; text-align:left; }
+    .buying-actions{ justify-content:flex-start; }
+  }
+
+  /* Mobile type scale — same sizes/weights as every other page (see styles.css) */
+  @media(max-width:720px){
+    body h1, body .hero-title, body .hero__title { font-size:28px; font-weight:400; line-height:1.25; }
+    body .sourcing-title, body .section-head-title, body .buying .section-head-title,
+    body .products-titles .section-head-title, body .cat-list-titles .section-head-title,
+    body .mission-title, body .certs-statement { font-size:24px; font-weight:400; line-height:1.3; letter-spacing:-.4px; }
+    body .mission-card-title, body .mission-card--photo .mission-card-title, body .buying-steps h3 { font-size:20px; font-weight:400; line-height:1.3; }
+    body .cap-stat-num { font-size:32px; }
+    body section h3:not([class]), body .cap-list h3, body .buying-steps h3 { font-size:20px; font-weight:400; line-height:1.3; }
   }
 </style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://truleaf.in/#org",
+      "name": "Truleaf",
+      "url": "https://truleaf.in/",
+      "logo": "https://truleaf.in/assets/icons/logo-mark.svg",
+      "description": "Exporter of traceable, certified organic fresh and processed fruits, vegetables and ingredients from India.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "124 Export Plaza, Trade District",
+        "addressCountry": "IN"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://truleaf.in/#site",
+      "url": "https://truleaf.in/",
+      "name": "Truleaf",
+      "publisher": {
+        "@id": "https://truleaf.in/#org"
+      }
+    }
+  ]
+}</script>
+<link rel="stylesheet" href="assets/motion.css?v=5" />
 </head>
 <body>
 
-<nav class="nav-wrap" id="navWrap">
-  <div class="nav-pill">
-    <a href="#" class="nav-logo">TRULEAF</a>
-    <ul class="nav-links">
-      <li><a href="#">About Us</a></li>
-      <li><a href="#">Products
-        <svg viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.2"/></svg></a></li>
-      <li><a href="#">Blog</a></li>
-      <li><a href="#">Contact Us</a></li>
-    </ul>
-    <a href="#" class="nav-cta">Get in touch
-      <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-    </a>
-    <button class="nav-burger" aria-label="Menu">☰</button>
-  </div>
-</nav>
-
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#">About Us</a>
-  <a href="#">Products</a>
-  <a href="#">Blog</a>
-  <a href="#">Contact Us</a>
-  <a href="#" class="btn btn-primary-img">Get in touch</a>
-</div>
-
 <section class="hero" id="hero">
   <div class="hero-slide is-active" data-i="0"><img src="webimg/rice.jpg" alt="Rice harvest close-up"><div class="hero-scrim"></div></div>
-  <div class="hero-slide" data-i="1"><img src="webimg/fields.jpg" alt="Aerial view of cultivated fields"><div class="hero-scrim"></div></div>
+  <div class="hero-slide" data-i="1"><img src="webimg/oranges.jpg" alt="Ripe oranges hanging on a tree in an orchard"><div class="hero-scrim"></div></div>
+
+  <div class="hero-nav-slot">
+    <nav class="nav" id="nav">
+      <a href="index.html" class="nav__logo" aria-label="Trueleaf home">
+        <img src="assets/icons/logo-mark.svg" alt="" class="nav__logo-mark" />
+        <img src="assets/icons/logo-text.svg" alt="Trueleaf" class="nav__logo-text" />
+      </a>
+
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav__links" id="navLinks">
+        <a href="catalogue.html">Products</a>
+        <a href="supply-chain.html">Retail to Business</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About Us</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html" class="nav__cta nav__cta--mobile">Get in touch</a>
+      </div>
+
+      <a href="contact.html" class="nav__cta">Get in touch</a>
+    </nav>
+  </div>
   <div class="hero-slide" data-i="2"><img src="webimg/figma-hero.jpg" alt="Palm grove at a coconut sourcing farm"><div class="hero-scrim"></div></div>
 
   <div class="hero-content">
     <h1 class="hero-title t-display" id="heroTitle">
-      <span class="line"><span>Reliable organic</span></span>
-      <span class="line"><span>sourcing for global</span></span>
-      <span class="line"><span>markets</span></span>
+      <span class="line"><span>Reliable organic sourcing</span></span>
+      <span class="line"><span>for global markets</span></span>
     </h1>
     <p class="hero-sub">We export traceable, certified organic fresh and processed fruits and vegetables, and organic ingredients, sourced directly from origin to international buyers, with a strong focus on quality, food safety, compliance, documentation, and seamless logistics.</p>
     <div class="hero-actions">
-      <a href="#" class="btn btn-brand">Enquire
+      <a href="contact.html?enquiry=quote" class="btn btn-brand">Request a quote
         <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></a>
+      <a href="catalogue.html" class="btn btn-glass">Browse catalogue</a>
     </div>
   </div>
 
   <div class="hero-scroll t-label"><span>Scroll</span><span class="mouse"></span></div>
   <div class="hero-thumbs" id="heroThumbs">
     <div class="hero-thumb is-active" data-go="0"><img src="webimg/rice_t.jpg" alt=""></div>
-    <div class="hero-thumb" data-go="1"><img src="webimg/fields_t.jpg" alt=""></div>
+    <div class="hero-thumb" data-go="1"><img src="webimg/oranges_t.jpg" alt=""></div>
     <div class="hero-thumb" data-go="2"><img src="webimg/figma-hero_t.jpg" alt=""></div>
   </div>
 </section>
 
 <section class="certs">
   <div class="certs-inner">
-    <p class="certs-statement">Everything we export — trusted at processing source, certified to global markets, compliant worldwide.</p>
+    <p class="certs-statement">Everything we export is trusted at the processing source, certified to global markets and compliant worldwide.</p>
     <div class="certs-row">
       <div class="cert-badge">
-        <span class="cert-badge-circle">USDA</span>
+        <img class="cert-badge-logo" src="assets/icons/cert-usda-organic.svg" alt="USDA Organic seal" />
         <span>Organic</span>
       </div>
       <div class="cert-badge">
-        <span class="cert-badge-circle">USDA</span>
-        <span>Organic</span>
+        <img class="cert-badge-logo cert-badge-logo--compact" src="assets/icons/cert-brcgs-agents-brokers.svg" alt="BRCGS Agents and Brokers Certificated" />
+        <span>Agents &amp; Brokers</span>
       </div>
       <div class="cert-badge">
-        <span class="cert-badge-circle">EU</span>
-        <span>Certification</span>
+        <img class="cert-badge-logo cert-badge-logo--wide" src="assets/icons/cert-sedex-member.svg" alt="Sedex Member" />
+        <span>Member</span>
       </div>
       <div class="cert-badge">
-        <span class="cert-badge-circle">ISO</span>
-        <span>22000:2018</span>
+        <img class="cert-badge-logo" src="assets/icons/cert-india-organic.svg" alt="India Organic logo" />
+        <span>NPOP</span>
       </div>
     </div>
-  </div>
+</div>
 </section>
 
 <section class="sourcing">
   <div class="sourcing-inner">
     <div class="sourcing-head">
-      <h2 class="sourcing-title">Rooted in Indian Soil,<br>Grown for the <em>Global Stage.</em></h2>
+      <h2 class="sourcing-title">Rooted in Indian Soil,<br>Grown for the<br><em>Global Stage.</em></h2>
       <div class="sourcing-aside">
         <p>We work with certified organic farmer producer groups and trusted processors to source premium-quality products for global markets.</p>
         <div class="sourcing-stats">
@@ -573,12 +656,13 @@
     </div>
     <div class="sourcing-figure" id="sourcingFigure">
       <div class="sourcing-figure-media">
-        <img src="webimg/figma-sourcing.jpg" alt="Aerial view of harvesting on Indian farmland">
+        <img loading="lazy" decoding="async" src="webimg/coconuts.jpg" alt="A cluster of fresh green coconuts on the tree">
       </div>
       <div class="sourcing-card">
         <svg class="sourcing-card-icon" viewBox="0 0 64.0004 53.3654" aria-hidden="true"><use href="#cap-icon-shape"/></svg>
         <h3>Direct from the Source</h3>
         <p>Partnering with certified organic farmers and trusted processors to deliver traceable, premium-quality products to global markets.</p>
+        <a href="supply-chain.html" class="btn btn-glass sourcing-card-cta">See how we source <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></a>
       </div>
     </div>
   </div>
@@ -586,74 +670,34 @@
 
 <section class="mission">
   <div class="mission-inner">
-    <span class="mission-eyebrow-dot"></span>
-    <h2 class="certs-statement" id="missionText">Growing responsibly today. Building a more sustainable tomorrow.</h2>
+    <h2 class="mission-title" id="missionText">Sourcing you can trace, standards<br class="mission-title__br" /> you can check.</h2>
+    <p class="mission-lede" id="missionLede">Every lot we export is traced to its farm cluster and backed by organic certification and export documents, so your buyers and auditors can check it.</p>
+    <a href="about.html" class="btn btn-outline mission-cta">See our impact <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></a>
   </div>
   <div class="mission-cards" id="missionCards">
     <div class="mission-card mission-card--stat">
-      <div>
-        <h3 class="mission-card-title">A Greener World Together</h3>
-        <b class="m-stat-num counter" data-target="24" data-suffix="+">0</b>
+      <h3 class="mission-card-title">Traceable by design</h3>
+      <div class="mission-card-foot">
+        <b class="m-stat-num counter" data-target="100" data-suffix="+">0</b>
+        <p>Farm clusters in our organic producer network, each traceable from farm to port</p>
       </div>
-      <p>Sustainable sourcing that protects natural resources, supports communities, and builds a healthier planet.</p>
     </div>
     <div class="mission-card mission-card--photo">
-      <img src="webimg/figma-sustain.jpg" alt="Sunlit farmland conserved for future harvests">
-      <span class="mission-card-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M20 4C10 4 4 10 4 20C14 20 20 14 20 4Z" stroke="currentColor" stroke-width="1.5"/><path d="M4 20L14 10" stroke="currentColor" stroke-width="1.5"/></svg></span>
+      <img loading="lazy" decoding="async" src="webimg/figma-sustain.jpg" alt="Sunlit farmland conserved for future harvests">
       <div class="mission-card-body">
-        <h3 class="t-label">Sustainability</h3>
-        <p>Nurturing nature today for a better tomorrow — for people, ecosystems, and future generations.</p>
+        <h3 class="mission-card-title">Fair to farmers</h3>
+        <p>Organic and fair-trade partnerships that protect farmer livelihoods and long-term soil health</p>
       </div>
     </div>
     <div class="mission-card mission-card--teal">
-      <div>
-        <span class="t-label">Responsible. Resilient. Sustainable</span>
-        <span class="mission-card-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M20 4C10 4 4 10 4 20C14 20 20 14 20 4Z" stroke="currentColor" stroke-width="1.5"/><path d="M4 20L14 10" stroke="currentColor" stroke-width="1.5"/></svg></span>
-        <h3 class="mission-card-title">Building a Sustainable Tomorrow</h3>
+      <div class="mission-teal-top">
+        <span>Certified. Compliant. Documented.</span>
+        <span class="mission-pill"><img loading="lazy" decoding="async" src="assets/icons/mission-leaf.svg" alt=""></span>
       </div>
-      <div class="mission-card-foot">
-        <img class="mission-avatar" src="webimg/rice_t.jpg" alt="">
-        <span>For people, nature, and lasting impact.</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="capabilities" id="capabilities">
-  <div class="capabilities-inner">
-    <div class="section-head section-head--narrow">
-      <span class="t-label">Our capabilities</span>
-      <h2 class="section-head-title" id="capabilitiesTitle">Bulk organic ingredients, supplied through reliable global sourcing.</h2>
-    </div>
-    <div class="cap-row" id="capRow">
-      <div class="cap-figure">
-        <img src="webimg/figma-capabilities.jpg" alt="Close-up of golden rice ready for harvest">
-      </div>
-      <div class="cap-cards">
-        <div class="cap-col">
-          <div class="cap-card">
-            <svg class="cap-icon" viewBox="0 0 64.0004 53.3654" aria-hidden="true"><use href="#cap-icon-shape"/></svg>
-            <h3>Bulk Ingredients</h3>
-            <p>Consistent, export-grade volumes prepared to exact spec — from single-origin lots to blended supply programs.</p>
-          </div>
-          <div class="cap-card">
-            <svg class="cap-icon" viewBox="0 0 64.0004 53.3654" aria-hidden="true"><use href="#cap-icon-shape"/></svg>
-            <h3>R&amp;D Collaboration</h3>
-            <p>Our in-house food scientists work alongside your team on custom formulations, extracts and blends.</p>
-          </div>
-        </div>
-        <div class="cap-col">
-          <div class="cap-card">
-            <svg class="cap-icon" viewBox="0 0 64.0004 53.3654" aria-hidden="true"><use href="#cap-icon-shape"/></svg>
-            <h3>Customer Support</h3>
-            <p>Dedicated account teams manage documentation, logistics and compliance from PO through delivery.</p>
-          </div>
-          <div class="cap-card">
-            <svg class="cap-icon" viewBox="0 0 64.0004 53.3654" aria-hidden="true"><use href="#cap-icon-shape"/></svg>
-            <h3>Responsibility</h3>
-            <p>Certified organic and fair-trade partnerships that protect farmer livelihoods and long-term soil health.</p>
-          </div>
-        </div>
+      <h3 class="mission-card-title">Ready for your market's audits</h3>
+      <div class="mission-teal-foot">
+        <span class="mission-badge"><img loading="lazy" decoding="async" src="assets/icons/mission-globe.svg" alt=""></span>
+        <span>USDA Organic, EU Organic and ISO 22000:2018 certified</span>
       </div>
     </div>
   </div>
@@ -663,54 +707,58 @@
   <div class="trending-inner">
     <div class="cat-list-wrap">
       <div class="cat-list-aside">
-        <span class="t-label">Our Products</span>
-        <h2 class="section-head-title" id="trendingTitle">Featured Categories</h2>
-        <p>A closer look at the categories our partners source most — each backed by full traceability and certification.</p>
-        <a href="#" class="btn btn-brand">View Catalogue</a>
+        <div class="cat-list-head">
+          <div class="cat-list-titles">
+            <span class="cat-list-eyebrow">Categories</span>
+            <h2 class="section-head-title" id="trendingTitle">Featured Categories</h2>
+          </div>
+          <p>Explore our range of responsibly sourced food products, ingredients, and value-added solutions for global markets.</p>
+        </div>
+        <a href="catalogue.html" class="btn btn-brand">View Catalogue</a>
       </div>
-      <div class="cat-list" id="trendingRow">
-        <a href="#" class="cat-list-item">
-          <div class="cat-list-thumb"><img src="webimg/figma-cat1.png" alt=""></div>
-          <div class="cat-list-copy">
-            <h3>Pulses &amp; Legumes</h3>
-            <p>Export-grade lentils, chickpeas and beans, cleaned and graded to international specification.</p>
-          </div>
-          <span class="cat-arrow"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
-        </a>
-        <a href="#" class="cat-list-item">
-          <div class="cat-list-thumb"><img src="webimg/figma-cat2.png" alt=""></div>
-          <div class="cat-list-copy">
-            <h3>Spices &amp; Herbs</h3>
-            <p>Whole and ground spices sourced from certified growing regions, tested for purity.</p>
-          </div>
-          <span class="cat-arrow"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
-        </a>
-        <a href="#" class="cat-list-item">
-          <div class="cat-list-thumb"><img src="webimg/figma-cat3.png" alt=""></div>
-          <div class="cat-list-copy">
-            <h3>Cold-Pressed Oils</h3>
-            <p>Traditionally extracted mustard, sesame and groundnut oils with full traceability.</p>
-          </div>
-          <span class="cat-arrow"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
-        </a>
-      </div>
+      <div class="cat-list" id="trendingRow"></div>
     </div>
   </div>
 </section>
 
-<section class="impact">
-  <div class="impact-inner">
-    <div class="impact-figure" id="impactFigure">
-      <img src="webimg/figma-impact.jpg" alt="Rows of crops under an open sky">
-      <div class="impact-row">
-        <div class="impact-cta">
-          <h3>Together, We Can Make a Lasting Difference</h3>
-          <a href="#" class="btn btn-primary-img">Contact Us
-            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></a>
+<section class="capabilities" id="capabilities">
+  <div class="capabilities-inner">
+    <div class="section-head section-head--narrow">
+      <span class="section-eyebrow">Why Truleaf</span>
+      <h2 class="section-head-title" id="capabilitiesTitle">Bulk organic ingredients, supplied through reliable global sourcing.</h2>
+    </div>
+    <div class="cap-row" id="capRow">
+      <div class="cap-figure">
+        <img loading="lazy" decoding="async" src="webimg/harvest.jpg" alt="Hands passing a wooden crate of freshly harvested aubergines in the field">
+        <div class="cap-stat">
+          <span class="cap-stat-num">24+</span>
+          <span class="cap-stat-label">Products Sourced</span>
         </div>
-        <div class="impact-note">
-          <h4>Respect Nature, Protect Life</h4>
-          <p>Your support helps us protect nature, empower communities, and secure a sustainable future.</p>
+      </div>
+      <div class="cap-cards">
+        <div class="cap-col">
+          <div class="cap-card">
+            <img loading="lazy" decoding="async" class="cap-icon" src="assets/icons/cap-bulk.svg" alt="" />
+            <h3>Bulk Ingredients</h3>
+            <p>Consistent, export-grade volumes prepared to exact spec — from single-origin lots to blended supply programs.</p>
+          </div>
+          <div class="cap-card">
+            <img loading="lazy" decoding="async" class="cap-icon" src="assets/icons/handle-rd.svg" alt="" />
+            <h3>R&amp;D Collaboration</h3>
+            <p>Our in-house food scientists work alongside your team on custom formulations, extracts and blends.</p>
+          </div>
+        </div>
+        <div class="cap-col">
+          <div class="cap-card">
+            <img loading="lazy" decoding="async" class="cap-icon" src="assets/icons/cap-support.svg" alt="" />
+            <h3>Customer Support</h3>
+            <p>Dedicated account teams manage documentation, logistics and compliance from PO through delivery.</p>
+          </div>
+          <div class="cap-card">
+            <img loading="lazy" decoding="async" class="cap-icon" src="assets/icons/cap-responsibility.svg" alt="" />
+            <h3>Responsibility</h3>
+            <p>Certified organic and fair-trade partnerships that protect farmer livelihoods and long-term soil health.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -719,44 +767,50 @@
 
 <section class="products" id="products">
   <div class="products-inner">
-    <div class="section-head section-head--split">
-      <div>
-        <span class="t-label">Our Capabilities</span>
+    <div class="products-head">
+      <div class="products-titles">
+        <span class="section-eyebrow">Trending now</span>
         <h2 class="section-head-title" id="productsTitle">Our Trending Products</h2>
       </div>
-      <a href="#" class="btn btn-brand">View Catalogue</a>
+      <a href="catalogue.html" class="btn btn-brand">View Catalogue</a>
     </div>
-    <div class="products-row" id="productsRow">
-      <a href="#" class="product-card">
-        <div class="product-figure">
-          <img src="webimg/product-cardamom.jpg" alt="Green cardamom pods">
+    <div class="products-row" id="productsRow"></div>
+  </div>
+</section>
+
+<section class="buying">
+  <div class="buying-inner">
+    <div class="buying-head">
+      <span class="section-eyebrow">How buying works</span>
+      <h2 class="section-head-title">From first enquiry to your port, in four steps.</h2>
+    </div>
+    <ol class="buying-steps">
+      <li><span class="buying-count">01</span><span class="buying-icon" aria-hidden="true"><img src="assets/icons/handle-enquire.svg" alt="" /></span><h3>Enquire</h3><p>Tell us the product, volume and destination. We reply with availability and pricing.</p></li>
+      <li><span class="buying-count">02</span><span class="buying-icon" aria-hidden="true"><img src="assets/icons/handle-rd.svg" alt="" /></span><h3>Sample and specs</h3><p>Review samples and exact specifications, or work with our food scientists on a custom blend.</p></li>
+      <li><span class="buying-count">03</span><span class="buying-icon" aria-hidden="true"><img src="assets/icons/handle-certification.svg" alt="" /></span><h3>Documentation</h3><p>We prepare certificates, compliance papers and export documents for your market.</p></li>
+      <li><span class="buying-count">04</span><span class="buying-icon" aria-hidden="true"><img src="assets/icons/handle-logistics.svg" alt="" /></span><h3>Shipment</h3><p>Logistics handled end to end, with your account team in touch until delivery.</p></li>
+    </ol>
+    <div class="buying-actions">
+      <a href="supply-chain.html" class="btn btn-brand">See our process <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></a>
+      <a href="contact.html?enquiry=quote" class="btn btn-outline">Start an enquiry</a>
+    </div>
+  </div>
+</section>
+
+<section class="impact">
+  <div class="impact-inner">
+    <div class="impact-figure" id="impactFigure">
+      <img loading="lazy" decoding="async" src="webimg/figma-impact.jpg" alt="Rows of crops under an open sky">
+      <div class="impact-row">
+        <div class="impact-cta">
+          <h3>Ready to source organic, with confidence?</h3>
+          <p class="impact-cta-sub">Tell us what you need. Our team will come back with availability, specs and a quote.</p>
+          <div class="impact-cta-actions">
+            <a href="contact.html?enquiry=quote" class="btn btn-primary-img">Request a quote <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></a>
+            <a href="catalogue.html" class="btn btn-glass">Download catalogue</a>
+          </div>
         </div>
-        <span class="t-small product-index">Spices</span>
-        <div class="cat-card-row">
-          <h3>Cardamom</h3>
-          <span class="cat-arrow"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
-        </div>
-      </a>
-      <a href="#" class="product-card">
-        <div class="product-figure">
-          <img src="webimg/product-cumin.jpg" alt="Cumin seeds">
-        </div>
-        <span class="t-small product-index">Spices</span>
-        <div class="cat-card-row">
-          <h3>Cumin</h3>
-          <span class="cat-arrow"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
-        </div>
-      </a>
-      <a href="#" class="product-card">
-        <div class="product-figure">
-          <img src="webimg/product-pistachio.jpg" alt="Shelled pistachios">
-        </div>
-        <span class="t-small product-index">Nuts</span>
-        <div class="cat-card-row">
-          <h3>Pistachio</h3>
-          <span class="cat-arrow"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
-        </div>
-      </a>
+      </div>
     </div>
   </div>
 </section>
@@ -765,8 +819,12 @@
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="#" class="footer-logo">TRU<em>LEAF</em></a>
-        <p>Reliable organic sourcing for global markets — traceable, certified agricultural exports from origin to international buyers.</p>
+        <a href="index.html" class="footer-logo" aria-label="Truleaf home">
+          <img class="footer-logo__mark" src="assets/icons/footer-logo-mark.svg" alt="" />
+          <img class="footer-logo__text" src="assets/icons/footer-logo-text.svg" alt="Truleaf" />
+          <img class="footer-logo__line" src="assets/icons/footer-logo-underline.svg" alt="" />
+        </a>
+        <p>Reliable organic sourcing for global markets. Traceable, certified agricultural exports from origin to international buyers.</p>
         <div class="footer-social">
           <a href="#" aria-label="Facebook">FB</a>
           <a href="#" aria-label="Twitter">TW</a>
@@ -778,30 +836,27 @@
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Our Process</a></li>
-            <li><a href="#">Impact</a></li>
-            <li><a href="#">Careers</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="supply-chain.html">Ready to Retail</a></li>
+            <li><a href="catalogue.html">Product Catalogue</a></li>
+            <li><a href="blog.html">Our Blog</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>Resources</h4>
-          <ul>
-            <li><a href="#">Catalog</a></li>
-            <li><a href="#">Quality Docs</a></li>
-            <li><a href="#">Tracking</a></li>
-            <li><a href="#">Terms</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Office</h4>
-          <address>124 Export Plaza<br>Trade District<br>India</address>
+        <div class="footer-col footer-col--offices">
+          <div class="footer-office">
+            <h4>Registered office</h4>
+            <address>1A-1B Neem Square, KRG Nagar Main street, Ganapathy,<br>Coimbatore, Tamil Nadu, India 641006</address>
+          </div>
+          <div class="footer-office">
+            <h4>Corporate office</h4>
+            <address>Innov8 SKCL Tech Square Guindy, 2nd Floor, No 14 SP, SIDCO, T.V.K industrial Estate, Guindy,<br>Chennai, Tamil Nadu, India 600032</address>
+          </div>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Truleaf Exports</span>
-      <span>All rights reserved</span>
+      <span>All Rights Reserved</span>
     </div>
   </div>
 </footer>
@@ -812,25 +867,10 @@
   </defs>
 </svg>
 
+<script src="script.js?v=2"></script>
+<script src="assets/sanity.js"></script>
 <script>
 gsap.registerPlugin(ScrollTrigger);
-
-/* nav scroll state */
-const navWrap=document.getElementById('navWrap');
-ScrollTrigger.create({ start:40, end:99999, onUpdate:s=>navWrap.classList.toggle('scrolled', s.scroll()>40) });
-
-/* mobile menu toggle */
-const burger=document.querySelector('.nav-burger');
-const mobileMenu=document.getElementById('mobileMenu');
-burger.addEventListener('click',()=>{
-  const open=mobileMenu.classList.toggle('is-open');
-  burger.textContent = open ? '✕' : '☰';
-  burger.setAttribute('aria-expanded', open);
-  document.body.style.overflow = open ? 'hidden' : '';
-});
-mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-  mobileMenu.classList.remove('is-open'); burger.textContent='☰'; document.body.style.overflow='';
-}));
 
 /* hero entrance */
 function heroIn(){
@@ -859,14 +899,15 @@ function goTo(i){
 }
 function restart(){ clearTimeout(auto); auto=setTimeout(()=>goTo((cur+1)%slides.length),6000); }
 thumbs.forEach((t,i)=>t.addEventListener('click',()=>goTo(i)));
-const hero=document.getElementById('hero');
-hero.addEventListener('mouseenter',()=>clearTimeout(auto));
-hero.addEventListener('mouseleave',restart);
+/* pause only while the thumbnails are hovered: the hero is full-screen, so pausing on the whole hero meant it never advanced while the cursor was on the page */
+const thumbWrap=document.getElementById('heroThumbs');
+thumbWrap.addEventListener('mouseenter',()=>clearTimeout(auto));
+thumbWrap.addEventListener('mouseleave',restart);
 restart();
 
 /* mission statement: fade up */
-gsap.set('#missionText',{autoAlpha:0, y:20});
-gsap.to('#missionText',{
+gsap.set('#missionText, #missionLede',{autoAlpha:0, y:20});
+gsap.to('#missionText, #missionLede',{
   autoAlpha:1, y:0, duration:.8, ease:'power3.out',
   scrollTrigger:{ trigger:'#missionText', start:'top 78%' }
 });
@@ -917,11 +958,6 @@ gsap.to('.cert-badge',{
 /* featured categories: title fade-up, list rows stagger reveal */
 gsap.set('#trendingTitle',{autoAlpha:0, y:24});
 gsap.to('#trendingTitle',{ autoAlpha:1, y:0, duration:.8, ease:'power3.out', scrollTrigger:{ trigger:'#trendingTitle', start:'top 85%' } });
-gsap.set('#trendingRow .cat-list-item',{autoAlpha:0, y:24});
-gsap.to('#trendingRow .cat-list-item',{
-  autoAlpha:1, y:0, duration:.7, ease:'power3.out', stagger:.08,
-  scrollTrigger:{ trigger:'#trendingRow', start:'top 82%' }
-});
 
 /* impact banner: figure reveal */
 gsap.set('#impactFigure',{autoAlpha:0, y:40});
@@ -930,11 +966,6 @@ gsap.to('#impactFigure',{ autoAlpha:1, y:0, duration:1, ease:'power3.out', scrol
 /* trending products: title fade-up, cards stagger reveal */
 gsap.set('#productsTitle',{autoAlpha:0, y:24});
 gsap.to('#productsTitle',{ autoAlpha:1, y:0, duration:.8, ease:'power3.out', scrollTrigger:{ trigger:'#productsTitle', start:'top 85%' } });
-gsap.set('#productsRow .product-card',{autoAlpha:0, y:30});
-gsap.to('#productsRow .product-card',{
-  autoAlpha:1, y:0, duration:.8, ease:'power3.out', stagger:.08,
-  scrollTrigger:{ trigger:'#productsRow', start:'top 82%' }
-});
 
 /* subtle hover parallax: image drifts toward the cursor and eases back on exit */
 function initHoverParallax(figures, range, scaleAmt){
@@ -953,8 +984,41 @@ function initHoverParallax(figures, range, scaleAmt){
     fig.addEventListener('mouseleave', ()=> gsap.to(img, { scale:1, x:0, y:0, duration:.6, ease:'power3.out' }));
   });
 }
-initHoverParallax(gsap.utils.toArray('#productsRow .product-figure'));
-initHoverParallax(gsap.utils.toArray('#trendingRow .cat-list-thumb'), 10, 1.15);
+
+/* featured categories + trending products: both lists come from Sanity (admin controls them in the Studio); each shows at most 4, lowest display order first */
+async function loadFeaturedCategories(){
+  try{
+    const cats = await sanityFetch(`*[_type=="category" && featured==true] | order(order asc)[0...4]{name, shortDescription, "imageRef": image.asset._ref}`);
+    document.getElementById('trendingRow').innerHTML = cats.map(c => renderCategoryCard({
+      name:c.name, description:c.shortDescription, imageUrl:urlForImageRef(c.imageRef), href:PRODUCT_LISTING_URL
+    })).join('');
+  }catch(err){ console.error('Could not load categories from Sanity', err); }
+}
+
+async function loadTrendingProducts(){
+  try{
+    const products = await sanityFetch(`*[_type=="product" && featured==true] | order(order asc)[0...4]{name, category, "imageRef": image.asset._ref}`);
+    document.getElementById('productsRow').innerHTML = products.map(p => renderTrendCard({
+      name:p.name, category:p.category, imageUrl:urlForImageRef(p.imageRef), href:'catalogue.html'
+    })).join('');
+  }catch(err){ console.error('Could not load products from Sanity', err); }
+}
+
+/* animations for the Sanity-fed rows run once their cards exist */
+function initSanityRows(){
+  gsap.set('#trendingRow .category-card',{autoAlpha:0, y:24});
+  gsap.to('#trendingRow .category-card',{
+    autoAlpha:1, y:0, duration:.7, ease:'power3.out', stagger:.08,
+    scrollTrigger:{ trigger:'#trendingRow', start:'top 82%' }
+  });
+  gsap.set('#productsRow .trend-card',{autoAlpha:0, y:30});
+  gsap.to('#productsRow .trend-card',{
+    autoAlpha:1, y:0, duration:.8, ease:'power3.out', stagger:.08,
+    scrollTrigger:{ trigger:'#productsRow', start:'top 82%' }
+  });
+  ScrollTrigger.refresh();
+}
+Promise.all([loadFeaturedCategories(), loadTrendingProducts()]).then(initSanityRows);
 
 /* magnetic buttons: pill CTAs ease toward the cursor within a small radius */
 function initMagneticButtons(buttons, strength){
@@ -973,5 +1037,16 @@ function initMagneticButtons(buttons, strength){
 initMagneticButtons(gsap.utils.toArray('.btn-brand, .btn-primary-img'));
 </script>
 
+<a href="contact.html?enquiry=quote" class="sticky-cta" id="stickyCta">Request a quote</a>
+<script>
+(function(){
+  var cta=document.getElementById('stickyCta'),hero=document.getElementById('hero');
+  if(!cta||!hero||!('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function(e){ cta.classList.toggle('is-on',!e[0].isIntersecting); },{threshold:0.1}).observe(hero);
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/motion.js?v=6"></script>
+<script src="assets/home-motion.js?v=9"></script>
 </body>
 </html>

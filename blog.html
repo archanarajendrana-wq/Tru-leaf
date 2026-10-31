@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Blog | Truleaf</title>
+<meta name="description" content="Insights on organic sourcing, food safety, compliance and export logistics from the Truleaf team.">
+<link rel="canonical" href="https://truleaf.in/blog">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Truleaf">
+<meta property="og:title" content="Blog | Truleaf">
+<meta property="og:description" content="Insights on organic sourcing, food safety, compliance and export logistics from the Truleaf team.">
+<meta property="og:url" content="https://truleaf.in/blog">
+<meta property="og:image" content="https://truleaf.in/webimg/figma-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#272c7d">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Lora:wght@400;500&family=Sora:wght@300;400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=80" />
+<link rel="stylesheet" href="assets/footer.css" />
+<link rel="stylesheet" href="assets/motion.css" />
+</head>
+<body>
+
+<header class="about-hero">
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__logo" aria-label="Trueleaf home">
+      <img src="assets/icons/logo-mark.svg" alt="" class="nav__logo-mark" />
+      <img src="assets/icons/logo-text.svg" alt="Trueleaf" class="nav__logo-text" />
+    </a>
+
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="nav__links" id="navLinks">
+      <a href="catalogue.html">Products</a>
+      <a href="supply-chain.html">Retail to Business</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About Us</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html" class="nav__cta nav__cta--mobile">Get in touch</a>
+    </div>
+
+    <a href="contact.html" class="nav__cta">Get in touch</a>
+  </nav>
+
+  <div class="about-hero__content content-wrap reveal">
+    <h1 class="about-hero__title">Our Blog</h1>
+    <p class="about-hero__body">We export certified organic fresh and processed produce and ingredients, sourced from origin and delivered globally with a focus on quality, compliance, and seamless logistics.</p>
+  </div>
+</header>
+
+<div class="blog-banner reveal">
+  <img src="assets/images/contact-hero-bg.jpg" alt="Leaves" />
+</div>
+
+<section class="blog-grid">
+  <div class="content-wrap blog-grid__inner reveal-stagger" id="blogGridInner"></div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo" aria-label="Truleaf home">
+          <img class="footer-logo__mark" src="assets/icons/footer-logo-mark.svg" alt="" />
+          <img class="footer-logo__text" src="assets/icons/footer-logo-text.svg" alt="Truleaf" />
+          <img class="footer-logo__line" src="assets/icons/footer-logo-underline.svg" alt="" />
+        </a>
+        <p>Reliable organic sourcing for global markets. Traceable, certified agricultural exports from origin to international buyers.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="Twitter">TW</a>
+          <a href="#" aria-label="LinkedIn">LI</a>
+          <a href="#" aria-label="Instagram">IG</a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="supply-chain.html">Ready to Retail</a></li>
+            <li><a href="catalogue.html">Product Catalogue</a></li>
+            <li><a href="blog.html">Our Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-col--offices">
+          <div class="footer-office">
+            <h4>Registered office</h4>
+            <address>1A-1B Neem Square, KRG Nagar Main street, Ganapathy,<br>Coimbatore, Tamil Nadu, India 641006</address>
+          </div>
+          <div class="footer-office">
+            <h4>Corporate office</h4>
+            <address>Innov8 SKCL Tech Square Guindy, 2nd Floor, No 14 SP, SIDCO, T.V.K industrial Estate, Guindy,<br>Chennai, Tamil Nadu, India 600032</address>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Truleaf Exports</span>
+      <span>All Rights Reserved</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/sanity.js"></script>
+<script>
+  (async () => {
+    try {
+      const posts = await sanityFetch(
+        `*[_type=="post" && hidden != true] | order(date desc){title, excerpt, "slug": slug.current, "image": image.asset->url}`
+      );
+      document.getElementById('blogGridInner').innerHTML = posts
+        .map(
+          (post) => `
+        <a class="blog-card" href="blog-post.html?post=${post.slug}">
+          <div class="blog-card__image"><img src="${post.image || ''}" alt="" /></div>
+          <div class="blog-card__body">
+            <h3>${post.title}</h3>
+            <p>${post.excerpt || ''}</p>
+            <span class="blog-card__link">Read More</span>
+          </div>
+        </a>
+      `
+        )
+        .join('');
+    } catch (err) {
+      console.error('Could not load blog posts from Sanity', err);
+    }
+  })();
+</script>
+<script src="script.js?v=2"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/motion.js?v=3"></script>
+</body>
+</html>

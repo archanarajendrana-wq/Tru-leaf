@@ -1,0 +1,87 @@
+html.lenis, html.lenis body { height: auto; }
+html.lenis { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* Scroll progress */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 200;
+  background: #23aace; transform: scaleX(0); transform-origin: 0 50%;
+  pointer-events: none;
+}
+
+/* Curtain image reveal (only when JS motion is active) */
+.js-motion .careers-open__banner.curtain-ready,
+.js-motion .careers-apply__photo.curtain-ready {
+  clip-path: inset(0 0 100% 0 round 24px);
+  transition: clip-path .8s cubic-bezier(.2,.7,.2,1);
+}
+.js-motion .careers-open__banner.curtain-ready.is-in,
+.js-motion .careers-apply__photo.curtain-ready.is-in { clip-path: inset(0 0 0 0 round 24px); }
+
+/* Buying timeline: line draws, circles pop in sequence */
+.js-motion .buying-steps.curtain-ready::before {
+  transform: scaleX(0); transform-origin: 0 50%;
+  transition: transform 1s cubic-bezier(.2,.7,.2,1) .15s;
+}
+.js-motion .buying-steps.curtain-ready.is-in::before { transform: scaleX(1); }
+.js-motion .buying-steps.curtain-ready .buying-count {
+  opacity: 0; scale: .6;
+  transition: opacity .5s ease, scale .6s cubic-bezier(.3,1.5,.5,1);
+}
+.js-motion .buying-steps.curtain-ready.is-in .buying-count { opacity: 1; scale: 1; }
+.js-motion .buying-steps.curtain-ready li:nth-child(1) .buying-count { transition-delay: .1s; }
+.js-motion .buying-steps.curtain-ready li:nth-child(2) .buying-count { transition-delay: .3s; }
+.js-motion .buying-steps.curtain-ready li:nth-child(3) .buying-count { transition-delay: .5s; }
+.js-motion .buying-steps.curtain-ready li:nth-child(4) .buying-count { transition-delay: .7s; }
+.js-motion .buying-steps.curtain-ready h3,
+.js-motion .buying-steps.curtain-ready p,
+.js-motion .buying-steps.curtain-ready .buying-icon {
+  opacity: 0; translate: 0 14px;
+  transition: opacity .45s ease, translate .45s ease;
+}
+.js-motion .buying-steps.curtain-ready.is-in h3,
+.js-motion .buying-steps.curtain-ready.is-in p,
+.js-motion .buying-steps.curtain-ready.is-in .buying-icon { opacity: 1; translate: 0 0; }
+.js-motion .buying-steps.curtain-ready li:nth-child(1) :is(h3,p,.buying-icon) { transition-delay: .2s; }
+.js-motion .buying-steps.curtain-ready li:nth-child(2) :is(h3,p,.buying-icon) { transition-delay: .4s; }
+.js-motion .buying-steps.curtain-ready li:nth-child(3) :is(h3,p,.buying-icon) { transition-delay: .6s; }
+.js-motion .buying-steps.curtain-ready li:nth-child(4) :is(h3,p,.buying-icon) { transition-delay: .8s; }
+
+/* Stacked timeline: steps reveal one by one as they scroll in; the vertical line stays drawn */
+@media (max-width: 920px) {
+  .js-motion .buying-steps.curtain-ready::before { transform: none; transition: none; }
+  .js-motion .buying-steps.curtain-ready .buying-count,
+  .js-motion .buying-steps.curtain-ready li :is(h3, p, .buying-icon) { transition-delay: 0s !important; }
+  .js-motion .buying-steps.curtain-ready li.is-in .buying-count { opacity: 1; scale: 1; }
+  .js-motion .buying-steps.curtain-ready li.is-in :is(h3, p, .buying-icon) { opacity: 1; translate: 0 0; }
+  .js-motion .buying-steps.curtain-ready li:not(.is-in) .buying-count { opacity: 0; scale: .6; }
+  .js-motion .buying-steps.curtain-ready li:not(.is-in) :is(h3, p, .buying-icon) { opacity: 0; translate: 0 14px; }
+  .js-motion .buying-steps.curtain-ready li.is-in h3 { transition-delay: .1s !important; }
+  .js-motion .buying-steps.curtain-ready li.is-in p { transition-delay: .2s !important; }
+}
+
+/* Footer butterfly drifts gently */
+.js-motion .footer-logo__mark { animation: footer-float 5s ease-in-out infinite; }
+@keyframes footer-float {
+  0%, 100% { translate: 0 0; rotate: 0deg; }
+  50% { translate: 2px -5px; rotate: 4deg; }
+}
+
+/* Soft lift on perk and product cards */
+.js-motion .careers-why__item,
+.js-motion .careers-role { will-change: transform; }
+
+/* Homepage GSAP scenes */
+.mission-title .word { display: inline-block; }
+
+.buying-steps.gsap-line::before {
+  transform: none !important; transition: none !important;
+  transform-origin: 0 0;
+  scale: var(--line, 0) 1;
+}
+@media (max-width: 920px) {
+  .buying-steps.gsap-line::before { scale: 1 var(--line, 0); transform-origin: 50% 0; }
+}
+.buying-steps.gsap-line li.is-active .buying-count { border-color: var(--indigo-3, #8085cc); color: var(--brand-primary, #272c7d); }
+.buying-steps.gsap-line .buying-count { transition: border-color .4s ease, opacity .5s ease, scale .6s cubic-bezier(.3,1.5,.5,1); }
+

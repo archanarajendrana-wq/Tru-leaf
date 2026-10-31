@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Blog — Trueleaf</title>
+<meta name="description" content="" id="metaDescription" />
+<meta property="og:title" content="" id="metaOgTitle" />
+<meta property="og:description" content="" id="metaOgDescription" />
+<meta property="og:image" content="" id="metaOgImage" />
+<meta property="og:type" content="article" />
+<meta property="article:author" content="" id="metaAuthor" />
+<meta property="article:published_time" content="" id="metaPublished" />
+<meta property="article:section" content="" id="metaSection" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Lora:wght@400;500&family=Sora:wght@300;400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=80" />
+<link rel="stylesheet" href="assets/footer.css" />
+<link rel="stylesheet" href="assets/motion.css" />
+</head>
+<body>
+
+<header class="about-hero">
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__logo" aria-label="Trueleaf home">
+      <img src="assets/icons/logo-mark.svg" alt="" class="nav__logo-mark" />
+      <img src="assets/icons/logo-text.svg" alt="Trueleaf" class="nav__logo-text" />
+    </a>
+
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="nav__links" id="navLinks">
+      <a href="catalogue.html">Products</a>
+      <a href="supply-chain.html">Retail to Business</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About Us</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html" class="nav__cta nav__cta--mobile">Get in touch</a>
+    </div>
+
+    <a href="contact.html" class="nav__cta">Get in touch</a>
+  </nav>
+
+  <nav class="breadcrumb content-wrap reveal" aria-label="Breadcrumb" id="breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <a href="blog.html">Blog</a>
+    <span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current" id="breadcrumbCategory" aria-current="page"></span>
+  </nav>
+
+  <div class="about-hero__content about-hero__content--centered content-wrap reveal">
+    <h1 class="about-hero__title" id="postTitle">Loading…</h1>
+    <p class="about-hero__body about-hero__body--centered" id="postExcerpt"></p>
+    <div class="post-meta" id="postMeta">
+      <span class="post-meta__item" id="postMetaAuthor"></span>
+      <span class="post-meta__dot" aria-hidden="true">&middot;</span>
+      <span class="post-meta__item" id="postMetaDate"></span>
+      <span class="post-meta__dot" aria-hidden="true">&middot;</span>
+      <span class="post-meta__item" id="postMetaReadTime"></span>
+    </div>
+  </div>
+</header>
+
+<div class="blog-banner reveal">
+  <img src="" alt="" id="postHeroImage" />
+</div>
+
+<article class="blog-post">
+  <div class="content-wrap blog-post__body reveal" id="postBody"></div>
+</article>
+
+<section class="blog-related">
+  <div class="content-wrap">
+    <p class="about-eyebrow">Blogs</p>
+    <h2 class="about-heading">Related Articles</h2>
+    <div class="blog-grid__inner blog-related__grid reveal-stagger" id="relatedGrid"></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo" aria-label="Truleaf home">
+          <img class="footer-logo__mark" src="assets/icons/footer-logo-mark.svg" alt="" />
+          <img class="footer-logo__text" src="assets/icons/footer-logo-text.svg" alt="Truleaf" />
+          <img class="footer-logo__line" src="assets/icons/footer-logo-underline.svg" alt="" />
+        </a>
+        <p>Reliable organic sourcing for global markets. Traceable, certified agricultural exports from origin to international buyers.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="Twitter">TW</a>
+          <a href="#" aria-label="LinkedIn">LI</a>
+          <a href="#" aria-label="Instagram">IG</a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="supply-chain.html">Ready to Retail</a></li>
+            <li><a href="catalogue.html">Product Catalogue</a></li>
+            <li><a href="blog.html">Our Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-col--offices">
+          <div class="footer-office">
+            <h4>Registered office</h4>
+            <address>1A-1B Neem Square, KRG Nagar Main street, Ganapathy,<br>Coimbatore, Tamil Nadu, India 641006</address>
+          </div>
+          <div class="footer-office">
+            <h4>Corporate office</h4>
+            <address>Innov8 SKCL Tech Square Guindy, 2nd Floor, No 14 SP, SIDCO, T.V.K industrial Estate, Guindy,<br>Chennai, Tamil Nadu, India 600032</address>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Truleaf Exports</span>
+      <span>All Rights Reserved</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/sanity.js"></script>
+<script>
+  (async () => {
+    try {
+      const posts = await sanityFetch(
+        `*[_type=="post" && hidden != true] | order(date desc){title, excerpt, category, author, date, readTime, body, "slug": slug.current, "image": image.asset->url, "secondaryImage": secondaryImage.asset->url}`
+      );
+      if (!posts.length) return;
+
+      const slug = new URLSearchParams(window.location.search).get('post');
+      const post = posts.find((p) => p.slug === slug) || posts[0];
+
+      const formattedDate = formatDate(post.date);
+
+      document.title = `${post.title} — Trueleaf Blog`;
+      document.getElementById('postTitle').textContent = post.title;
+      document.getElementById('postExcerpt').textContent = post.excerpt || '';
+
+      document.getElementById('metaDescription').content = post.excerpt || '';
+      document.getElementById('metaOgTitle').content = post.title;
+      document.getElementById('metaOgDescription').content = post.excerpt || '';
+      document.getElementById('metaOgImage').content = post.image || '';
+      document.getElementById('metaAuthor').content = post.author || '';
+      document.getElementById('metaPublished').content = post.date || '';
+      document.getElementById('metaSection').content = post.category || '';
+
+      document.getElementById('breadcrumbCategory').textContent = post.category || 'Blog';
+      document.getElementById('postMetaAuthor').textContent = post.author || '';
+      document.getElementById('postMetaDate').textContent = formattedDate;
+      document.getElementById('postMetaReadTime').textContent = post.readTime || '';
+
+      const heroImage = document.getElementById('postHeroImage');
+      heroImage.src = post.image || '';
+      heroImage.alt = post.title;
+
+      const hasInlineImages = Array.isArray(post.body) && post.body.some((block) => block._type === 'image');
+      const bodyHtml = portableTextToHtml(post.body);
+
+      if (hasInlineImages || !post.secondaryImage) {
+        // New-style posts place images inline wherever the editor put them.
+        document.getElementById('postBody').innerHTML = bodyHtml;
+      } else {
+        // Legacy posts (migrated before inline images existed): keep the
+        // original layout, image dropped at the midpoint of the text.
+        const paragraphs = bodyHtml.split('</p>').filter((p) => p.trim()).map((p) => p + '</p>');
+        const midpoint = Math.ceil(paragraphs.length / 2);
+        document.getElementById('postBody').innerHTML = [
+          ...paragraphs.slice(0, midpoint),
+          `<div class="blog-post__image"><img src="${post.secondaryImage}" alt="" /></div>`,
+          ...paragraphs.slice(midpoint),
+        ].join('');
+      }
+
+      const related = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
+      document.getElementById('relatedGrid').innerHTML = related
+        .map(
+          (p) => `
+        <a class="blog-card" href="blog-post.html?post=${p.slug}">
+          <div class="blog-card__image"><img src="${p.image || ''}" alt="" /></div>
+          <div class="blog-card__body">
+            <h3>${p.title}</h3>
+            <p>${p.excerpt || ''}</p>
+            <span class="blog-card__link">Read More</span>
+          </div>
+        </a>
+      `
+        )
+        .join('');
+
+      document.querySelectorAll('.reveal, .reveal-stagger').forEach((el) => el.classList.add('is-visible'));
+    } catch (err) {
+      console.error('Could not load blog post from Sanity', err);
+    }
+  })();
+</script>
+<script src="script.js?v=2"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/motion.js?v=3"></script>
+</body>
+</html>
