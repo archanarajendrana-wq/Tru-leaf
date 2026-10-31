@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "figma-use-motion": {
+      "source": "figma/mcp-server-guide",
+      "sourceType": "github",
+      "skillPath": "skills/figma-use-motion/SKILL.md",
+      "computedHash": "600529f5daf5401ca02490bebc78d403302a61691ca81e1a62a4737bd25b4867"
+    }
+  }
+}

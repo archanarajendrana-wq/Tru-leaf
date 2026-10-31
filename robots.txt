@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /search
+Disallow: /prd-template.html
+Disallow: /project-prd-template.html
+
+Sitemap: https://truleaf.in/sitemap.xml

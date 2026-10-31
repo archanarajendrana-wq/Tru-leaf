@@ -1,0 +1,34 @@
+/* Site footer (shared across all pages) */
+.site-footer{ background:#1e2261; color:#fff; padding:96px 48px 0; }
+.footer-inner{ max-width:1200px; margin:0 auto; display:flex; flex-direction:column; gap:96px; }
+.footer-grid{ display:flex; justify-content:space-between; align-items:flex-start; gap:48px; flex-wrap:wrap; }
+.footer-brand{ width:384px; max-width:100%; display:flex; flex-direction:column; gap:32px; }
+.footer-logo{ position:relative; display:block; width:173px; height:76px; }
+.footer-logo img{ position:absolute; display:block; }
+.footer-logo__mark{ left:134.33px; top:0; width:38.5px; height:45.2px; }
+.footer-logo__text{ left:0; top:42.8px; width:146.2px; height:22.2px; }
+.footer-logo__line{ left:18.2px; top:71.1px; width:107.6px; height:4.9px; }
+.footer-brand p{ font-family:'Instrument Sans', sans-serif; font-size:16px; line-height:26px; letter-spacing:-.3px; color:rgba(255,255,255,.6); margin:0; }
+.footer-social{ display:flex; gap:16px; }
+.footer-social a{ width:40px; height:40px; border-radius:50%; border:1px solid rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; font-family:'Instrument Sans', sans-serif; font-size:12px; line-height:16px; color:#fff; transition:background .25s cubic-bezier(.2,.7,.2,1), border-color .25s cubic-bezier(.2,.7,.2,1); }
+.footer-social a:hover{ background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.4); }
+.footer-cols{ display:flex; gap:64px; }
+.footer-col{ display:flex; flex-direction:column; gap:24px; min-width:137px; }
+.footer-col h4{ font-family:'Instrument Sans', sans-serif; font-weight:700; font-size:14px; line-height:20px; letter-spacing:1.25px; text-transform:uppercase; color:#fff; margin:0; }
+.footer-col ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:24px; }
+.footer-col a{ font-family:'Instrument Sans', sans-serif; font-size:14px; line-height:20px; letter-spacing:-.15px; color:rgba(255,255,255,.6); transition:color .25s cubic-bezier(.2,.7,.2,1); }
+.footer-col a:hover{ color:#fff; }
+.footer-col--offices{ gap:28px; max-width:300px; }
+.footer-office{ display:flex; flex-direction:column; gap:12px; }
+.footer-col address{ font-style:normal; font-family:'Instrument Sans', sans-serif; font-size:14px; line-height:24px; letter-spacing:-.15px; color:rgba(255,255,255,.5); }
+.footer-bottom{ display:flex; justify-content:space-between; align-items:center; gap:16px; min-height:64px; border-top:1px solid rgba(255,255,255,.1); font-family:'Instrument Sans', sans-serif; font-size:10px; line-height:15px; letter-spacing:4.1px; text-transform:uppercase; color:rgba(255,255,255,.45); }
+@media(max-width:920px){
+  .site-footer{ padding:64px 24px 0; }
+  .footer-inner{ gap:56px; }
+  .footer-grid{ flex-direction:column; gap:48px; }
+}
+@media(max-width:520px){
+  .footer-cols{ gap:40px; flex-wrap:wrap; }
+  .footer-bottom{ flex-direction:column; align-items:flex-start; justify-content:center; gap:6px; padding:20px 0; letter-spacing:3px; }
+}
+

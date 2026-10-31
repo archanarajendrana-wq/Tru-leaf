@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="300" viewBox="0 0 440 300" fill="none" stroke="#272c7d" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <!-- soft backdrop -->
+  <circle cx="220" cy="150" r="104" fill="#d3f0f9" stroke="none"/>
+  <circle cx="338" cy="96" r="26" fill="#e1e3fa" stroke="none"/>
+  <circle cx="106" cy="190" r="18" fill="#c9ccf2" stroke="none"/>
+  <path d="M167 184H253L270 214C278 236 266 254 248 254H172C154 254 142 236 150 214Z" fill="#bdeaf7" stroke="none" transform="translate(10 0)"/>
+
+  <!-- flask -->
+  <g transform="translate(10 0)">
+    <path d="M188 58H234"/>
+    <path d="M196 58V122L150 214C142 236 154 254 172 254H248C266 254 278 236 270 214L226 122V58"/>
+    <path d="M160 200Q172 192 184 200T208 200T232 200T256 200" stroke-width="1.5"/>
+    <circle cx="192" cy="226" r="5"/>
+    <circle cx="224" cy="234" r="3.5"/>
+    <circle cx="214" cy="164" r="4"/>
+  </g>
+
+  <!-- bubbles rising -->
+  <circle cx="218" cy="104" r="5" stroke-opacity="0.7"/>
+  <circle cx="232" cy="84" r="3" stroke-opacity="0.6"/>
+  <circle cx="216" cy="70" r="2" stroke-opacity="0.5"/>
+
+  <!-- leaf sprig -->
+  <path d="M326 252C326 226 330 204 338 184"/>
+  <path d="M327 226C316 222 310 212 312 202C322 202 330 210 327 226Z" fill="#c9ccf2"/>
+  <path d="M331 208C342 204 350 194 348 184C338 184 330 192 331 208Z" fill="#c9ccf2"/>
+
+  <!-- ground -->
+  <path d="M96 254H356" stroke-opacity="0.5"/>
+  <ellipse cx="230" cy="256" rx="66" ry="6" fill="#272c7d" fill-opacity="0.08" stroke="none"/>
+  <ellipse cx="326" cy="256" rx="18" ry="6" fill="#272c7d" fill-opacity="0.08" stroke="none"/>
+  <path d="M112 88L114.24 93.76L120 96L114.24 98.24L112 104L109.76 98.24L104 96L109.76 93.76Z" fill="#7dd9f2" stroke="none"/>
+  <path d="M350 145L351.4 148.6L355 150L351.4 151.4L350 155L348.6 151.4L345 150L348.6 148.6Z" fill="#272c7d" stroke="none"/>
+</svg>

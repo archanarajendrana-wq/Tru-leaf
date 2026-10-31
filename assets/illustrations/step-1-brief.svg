@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="300" viewBox="0 0 440 300" fill="none" stroke="#272c7d" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <!-- soft backdrop -->
+  <circle cx="220" cy="152" r="106" fill="#e1e3fa" stroke="none"/>
+  <circle cx="332" cy="92" r="30" fill="#d3f0f9" stroke="none"/>
+  <circle cx="100" cy="206" r="16" fill="#c9ccf2" stroke="none"/>
+
+  <!-- ground -->
+  <path d="M76 254H372" stroke-opacity="0.5"/>
+  <ellipse cx="226" cy="256" rx="84" ry="6" fill="#272c7d" fill-opacity="0.08" stroke="none"/>
+
+  <!-- brief (checklist on a clipboard) -->
+  <rect x="168" y="84" width="120" height="166" rx="12" fill="#272c7d" fill-opacity="0.10" stroke="none"/>
+  <rect x="160" y="76" width="120" height="166" rx="12" fill="#ffffff"/>
+  <rect x="198" y="66" width="44" height="18" rx="7" fill="#c9ccf2"/>
+  <path d="M178 112H232" stroke-width="2.5"/>
+  <circle cx="184" cy="146" r="7" fill="#d3f0f9"/>
+  <path d="M180.5 146L183 148.5L187.5 143.5" stroke-width="1.6"/>
+  <path d="M200 146H258"/>
+  <circle cx="184" cy="178" r="7" fill="#d3f0f9"/>
+  <path d="M180.5 178L183 180.5L187.5 175.5" stroke-width="1.6"/>
+  <path d="M200 178H252"/>
+  <circle cx="184" cy="210" r="7"/>
+  <path d="M200 210H256"/>
+
+  <!-- pencil writing on the brief -->
+  <g transform="translate(300 206) rotate(-45)">
+    <rect x="-4" y="-9" width="62" height="18" rx="3" fill="#ffffff"/>
+    <path d="M-4 -9L-26 0L-4 9Z" fill="#c9ccf2"/>
+    <path d="M-17 -3.5L-22.5 0L-17 3.5" fill="#272c7d" stroke="none"/>
+    <rect x="58" y="-9" width="12" height="18" rx="3" fill="#d3f0f9"/>
+    <path d="M14 -9V9" stroke-opacity="0.35"/>
+  </g>
+
+  <!-- sparkles -->
+  <path d="M340 66L342.52 72.48L349 75L342.52 77.52L340 84L337.48 77.52L331 75L337.48 72.48Z" fill="#272c7d" stroke="none"/>
+  <path d="M372 118L373.4 121.6L377 123L373.4 124.4L372 128L370.6 124.4L367 123L370.6 121.6Z" fill="#272c7d" stroke="none"/>
+  <path d="M84 138L85.68 142.32L90 144L85.68 145.68L84 150L82.32 145.68L78 144L82.32 142.32Z" fill="#7dd9f2" stroke="none"/>
+</svg>
